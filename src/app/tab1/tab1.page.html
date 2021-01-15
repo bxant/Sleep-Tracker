@@ -1,17 +1,23 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title>Logging Sleepiness</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class = "ion-padding">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-</ion-content>
+  <ion-item>
+    <ion-label>What time did you go to sleep?</ion-label>
+    <ion-datetime [(ngModel)] = "sleepStart" (ngModelChange) = "userEnteredSleepStart()" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>What time did you wake up?</ion-label>
+    <ion-datetime [(ngModel)] = "sleepEnd" (ngModelChange) = "userEnteredSleepEnd()" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-button color = "primary" (click) = "logSleep()">Log Sleepiness</ion-button>
+    </ion-item>
+
+
