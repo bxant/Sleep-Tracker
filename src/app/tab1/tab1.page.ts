@@ -20,17 +20,23 @@ export class Tab1Page {
   // sleepEnd is when user logs when they wake up
   private sleepEnd:Date;
 
+  // when the user inputs a different time on screen
+  // this will turn to true
   private userLoggedStartSleep:boolean;
   private userLoggedEndSleep:boolean;
 
 
   userEnteredSleepStart()
   {
+    // user interacted with timer button here also.
+    // for: sleepStart
     this.userLoggedStartSleep = true;
   }
 
   userEnteredSleepEnd()
   {
+    // means that user messed with the timer button
+    // for: sleepEnd
     this.userLoggedEndSleep = true;
   }
 
@@ -40,6 +46,10 @@ export class Tab1Page {
     // for data collection
     console.log(this.sleepStart);
     console.log(this.sleepEnd);
+    //  this condition checked if user
+    // actually changed the times from when they logged sleep.
+    // will notify user if it is missing information using toast
+    // notification.
     if (this.userLoggedEndSleep == true && this.userLoggedStartSleep == true){
 			this.toastController.create({
 				message: 'Sleep Logged Successfully!',

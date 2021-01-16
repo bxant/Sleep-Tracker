@@ -1,17 +1,20 @@
-<ion-header [translucent]="true">
+<!-- All html files should have the around the same
+layout as the rest of the pages to ensure consistency. -->
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      View Log History
-    </ion-title>
+    <ion-title>Sleep History</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">View Log History</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class = "ion-padding">
 
-  <app-explore-container name="View Log History"></app-explore-container>
+<!-- Searchbar with a placeholder -->
+<ion-searchbar animated placeholder="Filter Schedules"></ion-searchbar>
+
+
+
+
+
+
+<!-- end of content page -->
 </ion-content>
