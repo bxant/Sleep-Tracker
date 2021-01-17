@@ -53,7 +53,7 @@ export class Tab1Page {
     if (this.userLoggedEndSleep == true && this.userLoggedStartSleep == true){
 			this.toastController.create({
 				message: 'Sleep Logged Successfully!',
-        duration: 3000,
+        duration: 2500,
         position: "top"		
 				}).then((toast) => {
 				toast.present();
@@ -62,7 +62,7 @@ export class Tab1Page {
 		else{
 			this.toastController.create({
 				message: 'Missing sleep information',
-				duration: 3000,
+				duration: 2500,
 				position: "top"		
 				}).then((toast) => {
 				toast.present();
