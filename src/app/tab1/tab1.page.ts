@@ -44,9 +44,12 @@ export class Tab1Page {
   {
     // just a placeholder function, will later be added to storage/array
     // for data collection
-    console.log(this.sleepStart);
-    console.log(this.sleepEnd);
-    //  this condition checked if user
+
+    // console for debugging
+    // console.log(this.sleepStart);
+    // console.log(this.sleepEnd);
+
+    // this condition checked if user
     // actually changed the times from when they logged sleep.
     // will notify user if it is missing information using toast
     // notification.
