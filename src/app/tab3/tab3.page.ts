@@ -9,4 +9,10 @@ export class Tab3Page {
 
   constructor() {}
 
+  // TODO: add a timer for user to meditate
+  // or even nap?
+  //  just need timer.
+  // referal documentation:
+  // https://demo.mobiscroll.com/angular/timer/countdown 
+
 }
