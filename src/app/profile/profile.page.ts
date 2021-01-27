@@ -1,3 +1,5 @@
+// USER PROFILE PAGE
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
