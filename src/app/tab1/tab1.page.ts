@@ -1,7 +1,12 @@
+// LOGGING SLEEP PAGE
+
 import { Component } from '@angular/core';
 
 // Personal imports
 import { ToastController } from '@ionic/angular';
+
+//  sleep data
+import { SleepData } from '../data/sleep-data';
 
 
 @Component({
@@ -13,7 +18,7 @@ export class Tab1Page {
 
   // constructor has toastController to ensure we can
   // notify user when they press buttons/do certain actions.
-  constructor(public toastController: ToastController) {}
+  constructor(public toastController: ToastController, public sleepDATA: SleepData) {}
 
   // sleepStart is when user logs sleep
   private sleepStart:Date;

@@ -1,3 +1,6 @@
+// MEDITATION PAGE
+
+
 import { Component } from '@angular/core';
 
 @Component({

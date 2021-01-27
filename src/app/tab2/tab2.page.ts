@@ -1,3 +1,5 @@
+// LOG HISTORY FOR SLEEP/MEDITATION/NAPS
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,6 +10,12 @@ import { Component } from '@angular/core';
 export class Tab2Page {
 
   constructor() {}
+
+  // tagsSelected = []
+  // for (var i = 0; i < tagsSelected.length; i++)
+  // {
+  //   tagsSelected.push(tagsSe)
+  // }
 
   // TODO: Need to bind the months to array that can be used
   // to filter through our sleep data.
