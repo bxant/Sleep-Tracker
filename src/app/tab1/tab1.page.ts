@@ -4,9 +4,11 @@ import { Component } from '@angular/core';
 
 // Personal imports
 import { ToastController } from '@ionic/angular';
+import { SleepData } from '../data/sleep-data';
+// import { SleepService } from '../services/sleep.service';
+
 
 //  sleep data
-
 
 @Component({
   selector: 'app-tab1',
@@ -35,6 +37,7 @@ export class Tab1Page {
     // user interacted with timer button here also.
     // for: sleepStart
     this.userLoggedStartSleep = true;
+    
   }
 
   userEnteredSleepEnd()
