@@ -3,6 +3,8 @@
 import { Component } from '@angular/core';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 
+import { LogsleepService } from '../services/logsleep.service';
+
 
 
 @Component({
@@ -12,14 +14,16 @@ import { OvernightSleepData } from '../data/overnight-sleep-data';
 })
 export class Tab2Page {
 
-  sleepDATA: OvernightSleepData[];
-  constructor() {}
+  constructor(public data: LogsleepService) {
+    console.log(data.getOvernightData());
+  }
 
   ngOnInit()
   {
 
   }
 
+  
 
 
   // tagsSelected = []
