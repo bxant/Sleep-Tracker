@@ -16,7 +16,7 @@ layout as the rest of the pages to ensure consistency. -->
      related to months. Although not final, should link
     user to specificly filtered months -->
 <ion-item>
-  <ion-label color = "medium">Select Months</ion-label>
+  <ion-label text-wrap color = "medium">Select Months</ion-label>
   <ion-select (ionChange) = "filteredMonths()" [(ngModel)] = "selectedMonths" [interfaceOptions]="customAlertOptions" interface="alert" multiple="true">
     <ion-select-option value="jan">January</ion-select-option>
     <ion-select-option value="feb">February</ion-select-option>
@@ -33,8 +33,8 @@ layout as the rest of the pages to ensure consistency. -->
   </ion-select>
 </ion-item>
 <ion-item>
-  <ion-label color = "medium">Select Days</ion-label>
-  <ion-select (ionChange) = "filteredDays()" [(ngModel)] = "selectedDays" scrollable = "true" [interfaceOptions]="customAlertOptions" interface="alert" multiple="true">
+  <ion-label text-wrap color = "medium">Select Days</ion-label>
+  <ion-select text-wrap (ionChange) = "filteredDays()" [(ngModel)] = "selectedDays" scrollable = "true" [interfaceOptions]="customAlertOptions" interface="alert" multiple="true">
     <ion-select-option value="mon">Monday</ion-select-option>
     <ion-select-option value="tue">Tuesday</ion-select-option>
     <ion-select-option value="wed">Wednesday</ion-select-option>
