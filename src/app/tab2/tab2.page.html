@@ -17,7 +17,7 @@ layout as the rest of the pages to ensure consistency. -->
     user to specificly filtered months -->
 <ion-item>
   <ion-label color = "medium">Select Months</ion-label>
-  <ion-select [(ngModel)] = "selectedMonths" [interfaceOptions]="customAlertOptions" interface="alert" multiple="true">
+  <ion-select (ionChange) = "filteredMonths()" [(ngModel)] = "selectedMonths" [interfaceOptions]="customAlertOptions" interface="alert" multiple="true">
     <ion-select-option value="jan">January</ion-select-option>
     <ion-select-option value="feb">February</ion-select-option>
     <ion-select-option value="mar">March</ion-select-option>
@@ -34,14 +34,14 @@ layout as the rest of the pages to ensure consistency. -->
 </ion-item>
 <ion-item>
   <ion-label color = "medium">Select Days</ion-label>
-  <ion-select scrollable = "true" [interfaceOptions]="customAlertOptions" interface="alert" multiple="true">
-    <ion-select-option value="bacon">Monday</ion-select-option>
-    <ion-select-option value="olives">Tuesday</ion-select-option>
-    <ion-select-option value="xcheese">Wednesday</ion-select-option>
-    <ion-select-option value="peppers">Thursday</ion-select-option>
-    <ion-select-option value="mushrooms">Friday</ion-select-option>
-    <ion-select-option value="onions">Saturday</ion-select-option>
-    <ion-select-option value="pepperoni">Sunday</ion-select-option>
+  <ion-select (ionChange) = "filteredDays()" [(ngModel)] = "selectedDays" scrollable = "true" [interfaceOptions]="customAlertOptions" interface="alert" multiple="true">
+    <ion-select-option value="mon">Monday</ion-select-option>
+    <ion-select-option value="tue">Tuesday</ion-select-option>
+    <ion-select-option value="wed">Wednesday</ion-select-option>
+    <ion-select-option value="thu">Thursday</ion-select-option>
+    <ion-select-option value="fri">Friday</ion-select-option>
+    <ion-select-option value="sat">Saturday</ion-select-option>
+    <ion-select-option value="sun">Sunday</ion-select-option>
   </ion-select>
 </ion-item>
 
@@ -55,10 +55,10 @@ regardless of the sleep Log -->
 
 <ion-content fullscreen>
 <!-- This here will be the location of our information from sleep logs -->
-<ion-button (click) = "filteredMonths()">check list</ion-button>
-<div *ngFor = "let months of monthsSelected">
+<!-- <ion-button (click) = "filteredMonths()">check list</ion-button>
+<div *ngFor = "let months of monthsSelected"> -->
 
-</div>
+<!-- </div> -->
 </ion-content>
 
 
