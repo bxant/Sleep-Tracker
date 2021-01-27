@@ -5,6 +5,9 @@ export class SleepData {
     id:string;
 	loggedAt:Date;
 
+	// TODO:
+	// add month and day attribute to be able to filter known items
+
 	constructor() {
 		//Assign a random (unique) ID. This may be useful for comparison (e.g., are two logged entries the same).
 		this.id = generate();
