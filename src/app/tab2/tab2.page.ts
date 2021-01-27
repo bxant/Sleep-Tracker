@@ -3,6 +3,8 @@
 import { Component } from '@angular/core';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 
+
+// this import is where data is saved into ionic storage
 import { LogsleepService } from '../services/logsleep.service';
 
 
@@ -14,13 +16,64 @@ import { LogsleepService } from '../services/logsleep.service';
 })
 export class Tab2Page {
 
+  selectedMonths = [];
+  monthsSelected = [];
+
+  public jan:boolean = false;
+  feb:boolean = false;
+  mar:boolean = false;
+  apr:boolean = false;
+  may:boolean = false;
+  jun:boolean = false;
+  jul:boolean = false;
+  aug:boolean = false;
+  sep:boolean = false;
+  oct:boolean = false;
+  nov:boolean = false;
+  dec:boolean = false;
+
   constructor(public data: LogsleepService) {
     console.log(data.getOvernightData());
+    console.log(this.jan);
   }
 
   ngOnInit()
   {
 
+  }
+
+  public selectTrue(date:boolean)
+  {
+    date = true;
+    console.log("selected true entered");  
+  }
+
+  public filteredMonths()
+  {
+    console.log("entered function");
+    console.log(this.selectedMonths);
+    var monthsDictionary = 
+    {
+      "jan": this.jan,
+      feb: this.feb,
+      mar: this.mar,
+      apr: this.apr,
+      may: this.may,
+      jun: this.jun,
+      jul: this.jul,
+      aug: this.aug,
+      sep: this.sep,
+      oct: this.oct,
+      nov: this.nov,
+      dec: this.dec
+    }
+    console.log(this.jan);
+    if (monthsDictionary["jan"] == true)
+    {
+      this.monthsSelected.push("january added");      
+    }
+    console.log(this.monthsSelected);
+    
   }
 
   
