@@ -1,6 +1,9 @@
 // LOG HISTORY FOR SLEEP/MEDITATION/NAPS
 
 import { Component } from '@angular/core';
+import { OvernightSleepData } from '../data/overnight-sleep-data';
+
+
 
 @Component({
   selector: 'app-tab2',
@@ -9,7 +12,15 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
+  sleepDATA: OvernightSleepData[];
   constructor() {}
+
+  ngOnInit()
+  {
+
+  }
+
+
 
   // tagsSelected = []
   // for (var i = 0; i < tagsSelected.length; i++)

@@ -4,8 +4,9 @@ import { Component } from '@angular/core';
 
 // Personal imports
 import { ToastController } from '@ionic/angular';
+import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { SleepData } from '../data/sleep-data';
-// import { SleepService } from '../services/sleep.service';
+import { LogsleepService } from '../services/logsleep.service';
 
 
 //  sleep data
@@ -15,11 +16,14 @@ import { SleepData } from '../data/sleep-data';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page{
 
+  
   // constructor has toastController to ensure we can
   // notify user when they press buttons/do certain actions.
-  constructor(public toastController: ToastController) {}
+  constructor(public toastController: ToastController, public sleepService: LogsleepService) {
+    // this.sleepService = SleepService;
+  }
 
   // sleepStart is when user logs sleep
   private sleepStart:Date;
@@ -31,6 +35,10 @@ export class Tab1Page {
   private userLoggedStartSleep:boolean;
   private userLoggedEndSleep:boolean;
 
+  
+  get allSleepData() {
+		return LogsleepService.AllSleepData;
+	}
 
   userEnteredSleepStart()
   {
@@ -66,7 +74,11 @@ export class Tab1Page {
         duration: 2500,
         position: "top"		
 				}).then((toast) => {
-				toast.present();
+        toast.present();
+        
+        console.log("Sleep DATA should appear");
+        this.sleepService.logOvernightData(new OvernightSleepData(this.sleepStart, this.sleepEnd));
+        console.log(this.allSleepData);
 				});
 			}
 		else{

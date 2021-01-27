@@ -1,7 +1,8 @@
 import { generate } from 'shortid';
 
+
 export class SleepData {
-	id:string;
+    id:string;
 	loggedAt:Date;
 
 	constructor() {

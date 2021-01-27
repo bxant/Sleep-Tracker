@@ -1,5 +1,6 @@
 import { SleepData } from './sleep-data';
 
+
 export class OvernightSleepData extends SleepData {
 	public sleepStart:Date;
 	public sleepEnd:Date;
