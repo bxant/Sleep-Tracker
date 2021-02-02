@@ -19,14 +19,23 @@ export class Tab2Page {
   selectedMonths = [];
   selectedDays = [];
 
-
+  
 
   constructor(public data: LogsleepService) {
-    console.log(data.getOvernightData());
+    // console.log(data.getOvernightData());
   }
+
+  sleepDATA:any = this.data.getOvernightData();
+  
+  // console.log(typeof sleepDATA);
 
   ngOnInit()
   {
+    console.log("type below");
+    // console.log(typeof this.sleepDATA["sleepStart"]);
+    // var integratedDATA = JSON.stringify(this.sleepDATA);
+    console.log("integrated data");
+    // console.log(integratedDATA);
 
   }
 
