@@ -25,19 +25,20 @@ export class Tab1Page{
   }
 
   // Time/Date of when the user started and ended their sleep
-  private sleepStart:Date;
-  private sleepEnd:Date;
+  private sleepStart:string;
+  private sleepEnd:string;
 
   // Store sleep data with SleepService
   async logSleep()
   {
     // If times are entered, log data and give success notif
     if (this.sleepStart != undefined && this.sleepEnd != undefined){
-      var data = new OvernightSleepData(this.sleepStart, this.sleepEnd);
+      var data = new OvernightSleepData(new Date(this.sleepStart), new Date(this.sleepEnd));
       this.sleepService.addToStorage(data);
       const add_toast = await this.toastController.create(
       {
         message: "Sleep Data Logged",
+        color: "medium",
         duration: 3000,
         buttons: [
           {
@@ -49,25 +50,12 @@ export class Tab1Page{
         ]
       });
       add_toast.present();
-      
-      // this.toastController.create({
-      //   message: 'Sleep Logged Successfully!',
-      //   duration: 2500,
-      //   position: "top"		
-      // }).then((toast) => {
-      //   toast.present();
-          
-      //   console.log("Sleep DATA should appear");
-      //   var toLog = new OvernightSleepData(this.sleepStart, this.sleepEnd);
-      //   this.sleepService.logOvernightData(toLog);
-      //   this.storage.set("overnightSleep", toLog);
-      //   console.log(this.allSleepData);
-      // });
     }
 		else{
 			this.toastController.create({
 				message: 'Missing Sleep Information',
-				duration: 3000,
+        duration: 3000,
+        color: "medium",
         position: "top",	
 				}).then((toast) => {
 				toast.present();

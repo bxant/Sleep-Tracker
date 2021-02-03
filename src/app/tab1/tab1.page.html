@@ -17,11 +17,11 @@ layout as the rest of the pages to ensure consistency. -->
 		<ion-card-content>
 			<ion-item class="ion-no-padding">
 				<ion-label >Sleep Time</ion-label>
-				<ion-datetime [(ngModel)]="sleepStart" (ngModelChange)="userEnteredSleepStart()" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
+				<ion-datetime [(ngModel)]="sleepStart" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
 			</ion-item>
 			<ion-item class="ion-no-padding" lines="none">
 				<ion-label >Wake Time</ion-label>
-				<ion-datetime [(ngModel)]="sleepEnd" (ngModelChange)="userEnteredSleepEnd()" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
+				<ion-datetime [(ngModel)]="sleepEnd" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
 			</ion-item>
 			<ion-button color="primary" (click)="logSleep()" expand="block">Log Sleep</ion-button>
 		</ion-card-content>

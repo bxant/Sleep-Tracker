@@ -1,65 +1,86 @@
-<!-- All html files should have the around the same
-layout as the rest of the pages to ensure consistency. -->
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Sleep History</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content class = "ion-padding">
-  
-<ion-header>
-<ion-toolbar>
-<!-- Searchbar with a placeholder -->
-<ion-searchbar animated placeholder="Search Sleep History"></ion-searchbar>
-<!-- Currently going to be placed as things that are
-     related to months. Although not final, should link
-    user to specificly filtered months -->
-<ion-item>
-  <ion-label text-wrap color = "medium">Select Months</ion-label>
-  <ion-select (ionChange) = "filteredMonths()" [(ngModel)] = "selectedMonths" scrollable = "true" [interfaceOptions]="customAlertOptions" interface="alert" multiple="true">
-    <ion-select-option value="jan">January</ion-select-option>
-    <ion-select-option value="feb">February</ion-select-option>
-    <ion-select-option value="mar">March</ion-select-option>
-    <ion-select-option value="apr">April</ion-select-option>
-    <ion-select-option value="may">May</ion-select-option>
-    <ion-select-option value="jun">June</ion-select-option>
-    <ion-select-option value="jul">July</ion-select-option>
-    <ion-select-option value="aug">August</ion-select-option>
-    <ion-select-option value="sep">September</ion-select-option>
-    <ion-select-option value="oct">October</ion-select-option>
-    <ion-select-option value="nov">November</ion-select-option>
-    <ion-select-option value="dec">December</ion-select-option>
-  </ion-select>
-</ion-item>
-<ion-item>
-  <ion-label text-wrap color = "medium">Select Days</ion-label>
-  <ion-select (ionChange) = "filteredDays()" [(ngModel)] = "selectedDays" scrollable = "true" [interfaceOptions]="customAlertOptions" interface="alert" multiple="true">
-    <ion-select-option value="mon">Monday</ion-select-option>
-    <ion-select-option value="tue">Tuesday</ion-select-option>
-    <ion-select-option value="wed">Wednesday</ion-select-option>
-    <ion-select-option value="thu">Thursday</ion-select-option>
-    <ion-select-option value="fri">Friday</ion-select-option>
-    <ion-select-option value="sat">Saturday</ion-select-option>
-    <ion-select-option value="sun">Sunday</ion-select-option>
-  </ion-select>
-</ion-item>
+<div class="ion-page" id="main-content">
+  <!-- All html files should have the around the same
+  layout as the rest of the pages to ensure consistency. -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false">
+          <ion-icon color="primary" name="filter-outline"></ion-icon>
+        </ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="primary">
+        <ion-button (click)="confirmClear()">
+          <ion-icon color="danger" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Sleep History</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-</ion-toolbar>
+  <ion-content>
+    <!-- Searchbar with a placeholder -->
+    <ion-searchbar animated color="medium" placeholder="Search Sleep History"></ion-searchbar>
+    <!-- Currently going to be placed as things that are
+      related to months. Although not final, should link
+      user to specificly filtered months -->
+    <ion-card *ngFor = "let data of allData">
+      <ion-card-header color="primary">
+        <ion-card-title>
+          {{data.typeString()}}
+          <ion-icon name="trash-outline" style="float: right" (click)="confirmDelete(data.id)"></ion-icon>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item class="ion-no-padding">
+          <ion-text>{{data.dateString()}}</ion-text>
+        </ion-item>
+        <ion-item class="ion-no-padding" lines="none">
+          <ion-text>{{data.summaryString()}}</ion-text>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</div>
 
-
-
-<!-- Ending header here because we want to make sure the filters show up
-regardless of the sleep Log -->
-</ion-header>
-
-<ion-content fullscreen>
-<!-- This here will be the location of our information from sleep logs -->
-
-</ion-content>
-
-
-
-
-<!-- end of content page -->
-</ion-content>
+<!-- Side Menu for Filtering Data -->
+<ion-menu side="start" content-id="main-content">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title>Filter</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-label>Month</ion-label>
+        <ion-select (ionChange) = "filteredMonths()" [(ngModel)] = "selectedMonths" scrollable = "true" [interfaceOptions]="customAlertOptions" interface="alert" multiple="true">
+          <ion-select-option value="jan">January</ion-select-option>
+          <ion-select-option value="feb">February</ion-select-option>
+          <ion-select-option value="mar">March</ion-select-option>
+          <ion-select-option value="apr">April</ion-select-option>
+          <ion-select-option value="may">May</ion-select-option>
+          <ion-select-option value="jun">June</ion-select-option>
+          <ion-select-option value="jul">July</ion-select-option>
+          <ion-select-option value="aug">August</ion-select-option>
+          <ion-select-option value="sep">September</ion-select-option>
+          <ion-select-option value="oct">October</ion-select-option>
+          <ion-select-option value="nov">November</ion-select-option>
+          <ion-select-option value="dec">December</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Day</ion-label>
+        <ion-select (ionChange) = "filteredDays()" [(ngModel)] = "selectedDays" scrollable = "true" [interfaceOptions]="customAlertOptions" interface="alert" multiple="true">
+          <ion-select-option value="mon">Monday</ion-select-option>
+          <ion-select-option value="tue">Tuesday</ion-select-option>
+          <ion-select-option value="wed">Wednesday</ion-select-option>
+          <ion-select-option value="thu">Thursday</ion-select-option>
+          <ion-select-option value="fri">Friday</ion-select-option>
+          <ion-select-option value="sat">Saturday</ion-select-option>
+          <ion-select-option value="sun">Sunday</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

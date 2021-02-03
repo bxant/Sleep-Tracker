@@ -1,11 +1,13 @@
 // LOG HISTORY FOR SLEEP/MEDITATION/NAPS
 
 import { Component } from '@angular/core';
+import { MenuController, ToastController, AlertController } from '@ionic/angular';
+import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
+import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 
-
-// this import is where data is saved into ionic storage
 import { LogsleepService } from '../services/logsleep.service';
+import { SleepService } from '../services/sleep.service';
 
 
 
@@ -15,37 +17,25 @@ import { LogsleepService } from '../services/logsleep.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
+  allData:SleepData[] = [];
   selectedMonths = [];
   selectedDays = [];
 
-  
-
-  constructor(public data: LogsleepService) {
-    // console.log(data.getOvernightData());
+  constructor(public data:LogsleepService, private sleepService:SleepService,
+              private menu:MenuController, public toastController:ToastController,
+              public alertController:AlertController) {
   }
-
-  sleepDATA:any = this.data.getOvernightData();
-  
-  // console.log(typeof sleepDATA);
 
   ngOnInit()
   {
-    console.log("type below");
-    // console.log(typeof this.sleepDATA["sleepStart"]);
-    // var integratedDATA = JSON.stringify(this.sleepDATA);
-    console.log("integrated data");
-    // console.log(integratedDATA);
-
+    this.allData = this.sleepService.getAllValues();
+    console.log(this.allData);
   }
-
-  
 
   public filteredMonths()
   {
     console.log("month filter");
     console.log(this.selectedMonths); 
-    
   }
 
   public filteredDays()
@@ -53,9 +43,6 @@ export class Tab2Page {
     console.log("day filter");
     console.log(this.selectedDays);
   }
-
-  
-
 
   // tagsSelected = []
   // for (var i = 0; i < tagsSelected.length; i++)
@@ -72,4 +59,64 @@ export class Tab2Page {
   // actually "filterable" <-- not sure if that's a word
   // but I hope you get the idea.
 
+  deleteData(id:string) {
+    this.sleepService.deleteFromStorage(id);
+    this.allData = this.sleepService.getAllValues();
+    this.toastController.create(
+			{
+				message: "Deleted Entry",
+				duration: 2000
+			}).then((toast)=>{toast.present()});
+  }
+  
+  clearStorage() {
+    this.sleepService.clearStorage();
+    this.allData = this.sleepService.getAllValues();
+    this.toastController.create(
+			{
+        message: "All Entries Deleted",
+        color: "medium",
+				duration: 2000
+			}).then((toast)=>{toast.present()});
+  }
+
+  async confirmDelete(id:string) {
+    const alert = await this.alertController.create({
+      header: "Delete Entry",
+      message: "Are you sure you want to delete this entry?",
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }, 
+        {
+          text: 'Delete',
+          cssClass: "danger",
+          handler: () => {
+            this.deleteData(id);
+          }
+        }]
+    });
+    await alert.present();
+  }
+
+  async confirmClear() {
+    const alert = await this.alertController.create({
+      header: "Delete All Logs",
+      message: "Are you sure you want to delete all logs?<br><br><strong>This action cannot be undone.</strong>",
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }, 
+        {
+          text: 'Delete',
+          cssClass: "danger",
+          handler: () => {
+            this.clearStorage();
+          }
+        }]
+    });
+    await alert.present();
+  }
 }
