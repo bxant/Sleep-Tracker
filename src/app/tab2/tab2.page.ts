@@ -29,7 +29,6 @@ export class Tab2Page {
   ngOnInit()
   {
     this.allData = this.sleepService.getAllValues();
-    console.log(this.allData);
   }
 
   public filteredMonths()
