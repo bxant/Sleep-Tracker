@@ -10,17 +10,17 @@ layout as the rest of the pages to ensure consistency. -->
 <ion-content class = "ion-padding">
 
   <ion-item>
-    <ion-label text-wrap color = "medium">What time did you go to sleep?</ion-label>
+    <ion-label >What time did you go to sleep?</ion-label>
     <ion-datetime [(ngModel)] = "sleepStart" (ngModelChange) = "userEnteredSleepStart()" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
   </ion-item>
 
   <ion-item>
-    <ion-label text-wrap color = "medium">What time did you wake up?</ion-label>
+    <ion-label >What time did you wake up?</ion-label>
     <ion-datetime [(ngModel)] = "sleepEnd" (ngModelChange) = "userEnteredSleepEnd()" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
   </ion-item>
 
   <ion-item>
-    <ion-button color="tertiary" (click) = "logSleep()">Log Sleep</ion-button>
+    <ion-button color="primary" (click) = "logSleep()">Log Sleep</ion-button>
     </ion-item>
 
 
