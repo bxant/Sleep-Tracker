@@ -4,6 +4,10 @@ import { Component } from '@angular/core';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 
 
+// this import is where data is saved into ionic storage
+import { LogsleepService } from '../services/logsleep.service';
+
+
 
 @Component({
   selector: 'app-tab2',
@@ -12,14 +16,45 @@ import { OvernightSleepData } from '../data/overnight-sleep-data';
 })
 export class Tab2Page {
 
-  sleepDATA: OvernightSleepData[];
-  constructor() {}
+  selectedMonths = [];
+  selectedDays = [];
+
+  
+
+  constructor(public data: LogsleepService) {
+    // console.log(data.getOvernightData());
+  }
+
+  sleepDATA:any = this.data.getOvernightData();
+  
+  // console.log(typeof sleepDATA);
 
   ngOnInit()
   {
+    console.log("type below");
+    // console.log(typeof this.sleepDATA["sleepStart"]);
+    // var integratedDATA = JSON.stringify(this.sleepDATA);
+    console.log("integrated data");
+    // console.log(integratedDATA);
 
   }
 
+  
+
+  public filteredMonths()
+  {
+    console.log("month filter");
+    console.log(this.selectedMonths); 
+    
+  }
+
+  public filteredDays()
+  {
+    console.log("day filter");
+    console.log(this.selectedDays);
+  }
+
+  
 
 
   // tagsSelected = []

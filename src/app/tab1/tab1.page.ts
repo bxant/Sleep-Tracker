@@ -8,8 +8,8 @@ import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { SleepData } from '../data/sleep-data';
 import { LogsleepService } from '../services/logsleep.service';
 
-
-//  sleep data
+// Ionic Storage
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-tab1',
@@ -21,7 +21,8 @@ export class Tab1Page{
   
   // constructor has toastController to ensure we can
   // notify user when they press buttons/do certain actions.
-  constructor(public toastController: ToastController, public sleepService: LogsleepService) {
+  constructor(public toastController: ToastController, public sleepService: LogsleepService,
+    public storage:Storage) {
     // this.sleepService = SleepService;
   }
 
@@ -77,7 +78,9 @@ export class Tab1Page{
         toast.present();
         
         console.log("Sleep DATA should appear");
-        this.sleepService.logOvernightData(new OvernightSleepData(this.sleepStart, this.sleepEnd));
+        var toLog = new OvernightSleepData(this.sleepStart, this.sleepEnd);
+        this.sleepService.logOvernightData(toLog);
+        this.storage.set("overnightSleep", toLog);
         console.log(this.allSleepData);
 				});
 			}
