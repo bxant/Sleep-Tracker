@@ -1,28 +1,29 @@
 <!-- All html files should have the around the same
 layout as the rest of the pages to ensure consistency. -->
 <ion-header>
-  <ion-toolbar>
-    <ion-title text-wrap>Logging Sleep</ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title text-wrap>Logging Sleep</ion-title>
+	</ion-toolbar>
 </ion-header>
 
-<!-- Start of page content -->
-<ion-content class = "ion-padding">
+<ion-content>
+	<ion-card>
+		<ion-card-header color="primary">
+			<ion-card-title>
+				Log Your Sleep
+			</ion-card-title>
+		</ion-card-header>
 
-  <ion-item>
-    <ion-label >What time did you go to sleep?</ion-label>
-    <ion-datetime [(ngModel)] = "sleepStart" (ngModelChange) = "userEnteredSleepStart()" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
-  </ion-item>
-
-  <ion-item>
-    <ion-label >What time did you wake up?</ion-label>
-    <ion-datetime [(ngModel)] = "sleepEnd" (ngModelChange) = "userEnteredSleepEnd()" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
-  </ion-item>
-
-  <ion-item>
-    <ion-button color="primary" (click) = "logSleep()">Log Sleep</ion-button>
-    </ion-item>
-
-
-    <!-- End of page content -->
+		<ion-card-content>
+			<ion-item class="ion-no-padding">
+				<ion-label >Sleep Time</ion-label>
+				<ion-datetime [(ngModel)]="sleepStart" (ngModelChange)="userEnteredSleepStart()" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
+			</ion-item>
+			<ion-item class="ion-no-padding" lines="none">
+				<ion-label >Wake Time</ion-label>
+				<ion-datetime [(ngModel)]="sleepEnd" (ngModelChange)="userEnteredSleepEnd()" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
+			</ion-item>
+			<ion-button color="primary" (click)="logSleep()" expand="block">Log Sleep</ion-button>
+		</ion-card-content>
+	</ion-card>
 </ion-content>

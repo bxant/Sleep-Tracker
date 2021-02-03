@@ -25,6 +25,15 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+:root {
+   --ion-text-color: #ffffff;
+   --ion-text-color-rgb: 255, 255, 255;
+
+   --ion-toolbar-background: var(--ion-color-dark);
+   --ion-item-background: var(--ion-color-medium);
+   --ion-card-color: var(--ion-color-medium);
+   --ion-overlay-background-color: var(--ion-color-medium);
+}
 
 // #For Radio Options
 .alert-radio-label.sc-ion-alert-md,
@@ -53,4 +62,4 @@ ion-segment-button {
    padding-left: 0px;
    padding-right: 0px;
 
- }
+}
