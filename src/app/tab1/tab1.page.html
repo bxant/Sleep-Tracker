@@ -25,5 +25,35 @@ layout as the rest of the pages to ensure consistency. -->
 			</ion-item>
 			<ion-button color="primary" (click)="logSleep()" expand="block">Log Sleep</ion-button>
 		</ion-card-content>
+
+		<ion-card-header color="primary">
+			<ion-card-title>
+				Log Schedule
+			</ion-card-title>
+		</ion-card-header>
+
+		<ion-card-content>
+			<ion-item>
+				<ion-label >Day</ion-label>
+				<ion-select [(ngModel)] = 'scheduleDay'>
+					<ion-select-option value="Sunday">Sunday</ion-select-option>
+					<ion-select-option value="Monday">Monday</ion-select-option>
+					<ion-select-option value="Tuesday">Tuesday</ion-select-option>
+					<ion-select-option value="Wednesday">Wednesday</ion-select-option>
+					<ion-select-option value="Thursday">Thursday</ion-select-option>
+					<ion-select-option value="Friday">Friday</ion-select-option>
+					<ion-select-option value="Saturday">Saturday</ion-select-option>
+				  </ion-select>
+			</ion-item>
+			<ion-item class="ion-no-padding">
+				<ion-label >Start Time</ion-label>
+				<ion-datetime [(ngModel)]="scheduleStart" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+			</ion-item>
+			<ion-item class="ion-no-padding" lines="none">
+				<ion-label >End Time</ion-label>
+				<ion-datetime [(ngModel)]="scheduleEnd" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+			</ion-item>
+			<ion-button color="primary" (click)="logSchedule()" expand="block">Log Schedule</ion-button>
+		</ion-card-content>
 	</ion-card>
 </ion-content>

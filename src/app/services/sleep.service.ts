@@ -4,6 +4,7 @@ import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 
 import { Storage } from '@ionic/storage';
+import { ScheduleData } from '../data/schedule-entry';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class SleepService {
 	private static LoadDefaultData:boolean = false;
 	public static AllSleepData:SleepData[] = [];
 	public static AllOvernightData:OvernightSleepData[] = [];
-	public static AllSleepinessData:StanfordSleepinessData[] = [];
+  public static AllSleepinessData:StanfordSleepinessData[] = [];
+  public static AllScheduleData:ScheduleData[] = [];
 
   constructor(private storage: Storage) {
   	if(SleepService.LoadDefaultData) {
@@ -37,6 +39,11 @@ export class SleepService {
   	SleepService.AllSleepinessData.push(sleepData);
   }
 
+  public logScheduleData(sleepData:ScheduleData) {
+  	SleepService.AllSleepData.push(sleepData);
+  	SleepService.AllScheduleData.push(sleepData);
+  }
+
   public addToStorage(sleepData:SleepData) {
     this.storage.set(sleepData.id, sleepData);
   }
@@ -52,6 +59,7 @@ export class SleepService {
       if (value.loggedValue == undefined)
       {
         all_values.push(new OvernightSleepData(value.sleepStart, value.sleepEnd, value.id));
+        all_values.push(new ScheduleData(value.scheduleDay, value.scheduleStart, value.scheduleEnd, value.id));
       }
       else
       {
