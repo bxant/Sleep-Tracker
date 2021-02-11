@@ -12,15 +12,15 @@ export class OvernightSleepData extends SleepData {
 		this.id = id;
 	}
 
-	summaryString():string {
+	// Returns time slept in minutes
+	sleepTime():number {
 		var sleepStart_ms = this.sleepStart.getTime();
 		var sleepEnd_ms = this.sleepEnd.getTime();
+		return (sleepEnd_ms - sleepStart_ms) / (1000 * 60);
+	}
 
-		// Calculate the difference in milliseconds
-		var difference_ms = sleepEnd_ms - sleepStart_ms;
-		    
-		// Convert to hours and minutes
-		return "Time Slept: " + Math.floor(difference_ms / (1000*60*60)) + " hours, " + Math.floor(difference_ms / (1000*60) % 60) + " minutes";
+	summaryString():string {
+		return "Time Slept: " + Math.floor(this.sleepTime() / 60) + " hours, " + Math.floor(this.sleepTime() % 60) + " minutes";
 	}
 
 	dateString():string {
