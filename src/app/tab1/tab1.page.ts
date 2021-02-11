@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { SleepData } from '../data/sleep-data';
-import { LogsleepService } from '../services/logsleep.service';
 import { SleepService } from '../services/sleep.service';
 
 // Ionic Storage
