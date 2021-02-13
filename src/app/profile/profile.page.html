@@ -8,16 +8,13 @@
 <ion-content>
     <!-- Input with placeholder -->
 
-    <ion-header color = "medium" aria-placeholder="ABOUT-ME">
-      <ion-title>About Me</ion-title>
-    </ion-header>
+<ion-label position = "floating">First Name</ion-label>
 <ion-input (ionChange) = "firstNameChanged()" [(ngModel)] = "firstName" 
-  class = "userFirst" animated color = "medium" 
-  placeholder="First Name">First Name:</ion-input>
+  class = "userFirst" animated></ion-input>
 
+  <ion-label position = "floating">Last Name</ion-label>
 <ion-input (ionChange) = "lastNameChanged()" [(ngModel)]  = "lastName" 
-  class = "userLast" animated color = "medium" 
-  placeholder="Last Name">Last Name:</ion-input>
+  class = "userLast" animated></ion-input>
 
 </ion-content>
 
