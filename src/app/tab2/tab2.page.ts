@@ -6,7 +6,6 @@ import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 
-import { LogsleepService } from '../services/logsleep.service';
 import { SleepService } from '../services/sleep.service';
 
 
@@ -21,7 +20,7 @@ export class Tab2Page {
   selectedMonths = [];
   selectedDays = [];
 
-  constructor(public data:LogsleepService, private sleepService:SleepService,
+  constructor(private sleepService:SleepService,
               private menu:MenuController, public toastController:ToastController,
               public alertController:AlertController) {
   }
