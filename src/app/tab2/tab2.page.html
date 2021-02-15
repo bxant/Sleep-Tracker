@@ -20,7 +20,8 @@
 
   <ion-content>
     <!-- Searchbar with a placeholder -->
-    <ion-searchbar animated color="medium" placeholder="Search Sleep History"></ion-searchbar>
+    <ion-searchbar (ionChange) = "filterResults($event)"
+    animated color="medium" placeholder="Search Sleep History"></ion-searchbar>
     <!-- Currently going to be placed as things that are
       related to months. Although not final, should link
       user to specificly filtered months -->
@@ -41,6 +42,22 @@
       </ion-card-content>
     </ion-card>
   </ion-content>
+  <script>
+    const searchbar = document.querySelector('ion-searchbar');
+    const items = Array.from(document.querySelector('allData').children);
+    
+    searchbar.addEventListener('ionInput', handleInput);
+
+    function handleInput(event) {
+      const query = event.target.value.toLowerCase();
+      requestAnimationFrame(() => {
+        items.forEach(item => {
+          const shouldShow = item.textContent.toLowerCase().indexOf(query) > -1;
+          item.style.display = shouldShow ? 'block' : 'none';
+        });
+      });
+    }
+  </script>
 </div>
 
 <!-- Side Menu for Filtering Data -->

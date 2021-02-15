@@ -33,8 +33,6 @@ export class Tab1Page{
     // If times are entered, log data and give success notif
     if (this.sleepStart != undefined && this.sleepEnd != undefined){
       var data = new OvernightSleepData(new Date(this.sleepStart), new Date(this.sleepEnd));
-      console.log("date string prints");
-      console.log(data);
       this.sleepService.addToStorage(data);
       const add_toast = await this.toastController.create(
       {

@@ -20,14 +20,35 @@ export class Tab2Page {
   selectedMonths = [];
   selectedDays = [];
 
+  
+
   constructor(private sleepService:SleepService,
               private menu:MenuController, public toastController:ToastController,
               public alertController:AlertController) {
   }
+  
+  public searchDataBackup:SleepData[];
+
+  
 
   ngOnInit()
   {
     this.allData = this.sleepService.getAllValues();
+    this.searchDataBackup = this.allData;
+  }
+
+  
+  public filterResults(ev: CustomEvent)
+  {
+    this.allData = this.searchDataBackup;
+    const val = ev.detail.value;
+    
+    if (val && val.trim() !== '')
+    {
+      this.allData = this.allData.filter(term => {
+        return term.dateString().toLowerCase().indexOf(val.trim().toLowerCase()) > -1;
+      })
+    }
   }
 
   public filteredMonths()
