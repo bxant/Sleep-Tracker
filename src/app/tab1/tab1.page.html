@@ -26,4 +26,26 @@ layout as the rest of the pages to ensure consistency. -->
 			<ion-button color="primary" (click)="logSleep()" expand="block">Log Sleep</ion-button>
 		</ion-card-content>
 	</ion-card>
+
+
+
+<!-- Adding alertness to start recommending meditation
+based on alertness level -->
+<ion-card>
+	<ion-card-header color="primary">
+		<ion-card-title text-wrap>
+			Log Your Alertness
+		</ion-card-title>
+	</ion-card-header>
+
+	<ion-card-content>
+		<ion-item class="ion-no-padding">
+			<ion-label text-wrap>How alert are you?</ion-label>
+			<ion-datetime [(ngModel)]="sleepStart" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
+		</ion-item>
+		<ion-button color="primary" (click)="logAlertness()" expand="block">Log Alertness</ion-button>
+		</ion-card-content>
+</ion-card>
+
+
 </ion-content>
