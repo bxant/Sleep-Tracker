@@ -7,6 +7,8 @@ import { ToastController } from '@ionic/angular';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { SleepData } from '../data/sleep-data';
 import { SleepService } from '../services/sleep.service';
+import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
+
 
 // Ionic Storage
 import { Storage } from '@ionic/storage';
@@ -26,6 +28,14 @@ export class Tab1Page{
   // Time/Date of when the user started and ended their sleep
   private sleepStart:string;
   private sleepEnd:string;
+
+  public sleepScale:String[];
+  private sleepFactor:number;
+
+  ngOnInit()
+  {
+    this.sleepScale = StanfordSleepinessData.ScaleValues;
+  }
 
   // Store sleep data with SleepService
   async logSleep()
@@ -64,7 +74,7 @@ export class Tab1Page{
 
   async logAlertness()
   {
-    
+
   }
 
 }
