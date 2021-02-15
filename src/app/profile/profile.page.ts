@@ -72,7 +72,7 @@ export class ProfilePage implements OnInit {
     this.storage.get("userLastName");
     const add_toast = await this.toastController.create(
       {
-        message: "Updated User Info",
+        message: "Updated User Info!",
         color: "medium",
         duration: 3000,
         buttons: [

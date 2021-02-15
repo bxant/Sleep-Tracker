@@ -46,7 +46,7 @@ export class Tab2Page {
     if (val && val.trim() !== '')
     {
       this.allData = this.allData.filter(term => {
-        return term.dateString().toLowerCase().indexOf(val.trim().toLowerCase()) > -1;
+        return term.summaryString().toLowerCase().indexOf(val.trim().toLowerCase()) > -1 || term.dateString().toLowerCase().indexOf(val.trim().toLowerCase()) > -1;
       })
     }
   }
