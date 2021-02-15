@@ -14,7 +14,7 @@
           <ion-icon color="danger" name="trash-outline"></ion-icon>
         </ion-button>
       </ion-buttons>
-      <ion-title>Sleep History</ion-title>
+      <ion-title text-wrap>Sleep History</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -42,22 +42,7 @@
       </ion-card-content>
     </ion-card>
   </ion-content>
-  <script>
-    const searchbar = document.querySelector('ion-searchbar');
-    const items = Array.from(document.querySelector('allData').children);
-    
-    searchbar.addEventListener('ionInput', handleInput);
-
-    function handleInput(event) {
-      const query = event.target.value.toLowerCase();
-      requestAnimationFrame(() => {
-        items.forEach(item => {
-          const shouldShow = item.textContent.toLowerCase().indexOf(query) > -1;
-          item.style.display = shouldShow ? 'block' : 'none';
-        });
-      });
-    }
-  </script>
+  
 </div>
 
 <!-- Side Menu for Filtering Data -->
