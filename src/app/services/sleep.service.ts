@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage';
 // New types of data for our user interface
 import { ScheduleEntry } from '../data/schedule-entry';
 import { MeditationData } from '../data/meditation-data';
+import { NapData } from '../data/nap-data';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,11 @@ export class SleepService {
 	public static AllSleepData:SleepData[] = [];
 	public static AllOvernightData:OvernightSleepData[] = [];
 	public static AllSleepinessData:StanfordSleepinessData[] = [];
+
+  // New data types added
+  public static AllScheduleData:ScheduleEntry[] = [];
+  public static AllMeditationData:MeditationData[] = [];
+  public static AllNapData:NapData[] = [];
 
   constructor(private storage: Storage) {
   	if(SleepService.LoadDefaultData) {
@@ -43,12 +49,24 @@ export class SleepService {
 
   public logScheduleData(sleepData:ScheduleEntry)
   {
+    SleepService.AllSleepData.push(sleepData);
+    SleepService.AllScheduleData.push(sleepData);
 
   }
 
   public logMeditationData(sleepData:MeditationData)
   {
+    SleepService.AllSleepData.push(sleepData);
 
+    // this is subject to change since this is not necessarily sleep
+    // data but we'll see
+    SleepService.AllMeditationData.push(sleepData);
+  }
+
+  public logNapData(sleepData:NapData)
+  {
+    SleepService.AllSleepData.push(sleepData);
+    SleepService.AllNapData.push(sleepData);
   }
 
   public addToStorage(sleepData:SleepData) {

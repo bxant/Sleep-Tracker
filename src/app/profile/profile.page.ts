@@ -10,6 +10,7 @@ import { ToastController } from '@ionic/angular';
 
 // schedule-entry
 import { ScheduleEntry } from '../data/schedule-entry';
+import { SleepService } from '../services/sleep.service';
 
 
 
@@ -25,7 +26,11 @@ export class ProfilePage implements OnInit {
   private lastName:string;
   private userAge:number;
   constructor(public toastController: ToastController, 
-  public storage :Storage, public schedule: ScheduleEntry) { }
+  public storage :Storage, public sleepService:SleepService) {
+
+    
+    
+   }
 
    
 
