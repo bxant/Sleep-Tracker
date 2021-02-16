@@ -75,7 +75,7 @@ export class Tab1Page{
   async logAlertness()
   {
 
-    
+    console.log("alertness is being logged");
 
   }
 
