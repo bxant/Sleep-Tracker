@@ -8,4 +8,5 @@ export class ScheduleEntry extends SleepData{
 
     private dayStarts:Date;
     private dayEnds:Date;
+
 }
