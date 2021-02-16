@@ -1,23 +1,4 @@
-// .card-body {
-//     background-color: #ffffff;
-//     padding: 30px;
-//     height: calc(100vh – (200px + 56px));
-//     overflow: hidden;
-
-//     .user-meta {
-//         padding-top: 40px;
-
-//         .playername {
-//             font-size: 24px;
-//             font-weight: 600;
-//             color: #303940;
-//         }
-
-//         .country {
-//             font-size: 90%;
-//             color: #949ea6;
-//             text-transform: uppercase;
-//             margin: 0 auto;
-//         }
-//     }
-// }
+.ripple-parent {
+    position: relative;
+    overflow: hidden;
+  }

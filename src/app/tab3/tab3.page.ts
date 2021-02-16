@@ -3,6 +3,14 @@
 
 import { Component } from '@angular/core';
 
+
+// toast notifications
+import { ToastController } from '@ionic/angular';
+
+//Ionic Storage
+import { Storage } from '@ionic/storage';
+
+
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -10,7 +18,15 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor(storage: Storage, toast:ToastController) 
+  {
+
+  }
+
+  ngOnInit()
+  {
+
+  }
 
   
 

@@ -74,8 +74,15 @@ export class Tab1Page{
 
   async logAlertness()
   {
-
-    console.log("alertness is being logged");
+    if (this.sleepFactor  != undefined)
+    {
+      console.log("Level of alertness printing");
+      console.log(this.sleepFactor);
+      console.log("alertness level was printed");
+      var dayOfAlertness = new Date();
+      this.sleepService.logSleepinessData(new StanfordSleepinessData(this.sleepFactor, dayOfAlertness));
+      console.log("alertness was logged");
+    }
 
   }
 
