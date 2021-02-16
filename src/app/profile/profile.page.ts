@@ -8,6 +8,9 @@ import { Storage } from '@ionic/storage';
 // Toast
 import { ToastController } from '@ionic/angular';
 
+// schedule-entry
+import { ScheduleEntry } from '../data/schedule-entry';
+
 
 
 
@@ -22,7 +25,7 @@ export class ProfilePage implements OnInit {
   private lastName:string;
   private userAge:number;
   constructor(public toastController: ToastController, 
-  public storage :Storage) { }
+  public storage :Storage, public schedule: ScheduleEntry) { }
 
    
 
@@ -30,7 +33,7 @@ export class ProfilePage implements OnInit {
 
   firstNameChanged()
   {
-
+    
     console.log("firstName changed");
     console.log(this.firstName);
     console.log("should have printed name");  }

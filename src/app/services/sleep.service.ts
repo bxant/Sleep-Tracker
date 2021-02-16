@@ -5,6 +5,10 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 
 import { Storage } from '@ionic/storage';
 
+// New types of data for our user interface
+import { ScheduleEntry } from '../data/schedule-entry';
+import { MeditationData } from '../data/meditation-data';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +39,16 @@ export class SleepService {
   public logSleepinessData(sleepData:StanfordSleepinessData) {
   	SleepService.AllSleepData.push(sleepData);
   	SleepService.AllSleepinessData.push(sleepData);
+  }
+
+  public logScheduleData(sleepData:ScheduleEntry)
+  {
+
+  }
+
+  public logMeditationData(sleepData:MeditationData)
+  {
+
   }
 
   public addToStorage(sleepData:SleepData) {

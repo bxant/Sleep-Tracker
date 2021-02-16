@@ -17,4 +17,6 @@ export class ScheduleEntry extends SleepData{
 		this.id = id;
     }
 
+    
+
 }
