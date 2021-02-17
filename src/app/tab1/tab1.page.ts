@@ -13,6 +13,7 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 // Ionic Storage
 import { Storage } from '@ionic/storage';
 import { DailyBriefPage } from '../daily-brief/daily-brief.page';
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -62,7 +63,10 @@ export class Tab1Page{
         //   ]
         // });
         // add_toast.present();
-        this.navController.navigateForward("/daily-brief");
+        // let navigationExtras: NavigationExtras = {
+        //   queryParams : { timeSlept: data.sleepTime()}
+        // }
+        // this.navController.navigateForward("/daily-brief", true, navigationExtras);
       }
       else
       {
