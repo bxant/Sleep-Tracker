@@ -19,6 +19,7 @@ export class Tab2Page {
   allData:SleepData[] = [];
   selectedMonths = [];
   selectedDays = [];
+  public searchDataBackup:SleepData[];
 
   
 
@@ -26,10 +27,6 @@ export class Tab2Page {
               private menu:MenuController, public toastController:ToastController,
               public alertController:AlertController) {
   }
-  
-  public searchDataBackup:SleepData[];
-
-  
 
   ngOnInit()
   {
@@ -64,21 +61,6 @@ export class Tab2Page {
     console.log("day filter");
     console.log(this.selectedDays);
   }
-
-  // tagsSelected = []
-  // for (var i = 0; i < tagsSelected.length; i++)
-  // {
-  //   tagsSelected.push(tagsSe)
-  // }
-
-  // TODO: Need to bind the months to array that can be used
-  // to filter through our sleep data.
-  // Need to also bind days to array to use for filtering of data.
-
-  //TODO: need to be able to also bind both days and months to our information.
-  // probably use a boolean value to ensure that our days are
-  // actually "filterable" <-- not sure if that's a word
-  // but I hope you get the idea.
 
   deleteData(id:string) {
     this.sleepService.deleteFromStorage(id);
