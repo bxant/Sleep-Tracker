@@ -8,11 +8,6 @@ import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { SleepData } from '../data/sleep-data';
 import { SleepService } from '../services/sleep.service';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
-
-
-// Ionic Storage
-import { Storage } from '@ionic/storage';
-import { DailyBriefPage } from '../daily-brief/daily-brief.page';
 import { NavigationExtras } from '@angular/router';
 
 @Component({
@@ -24,7 +19,7 @@ export class Tab1Page{
   // constructor has toastController to ensure we can
   // notify user when they press buttons/do certain actions.
   constructor(public toastController: ToastController, public navController: NavController,
-    public storage :Storage, private sleepService: SleepService) {
+ private sleepService: SleepService) {
   }
 
   // Time/Date of when the user started and ended their sleep
@@ -63,10 +58,7 @@ export class Tab1Page{
         //   ]
         // });
         // add_toast.present();
-        // let navigationExtras: NavigationExtras = {
-        //   queryParams : { timeSlept: data.sleepTime()}
-        // }
-        // this.navController.navigateForward("/daily-brief", true, navigationExtras);
+        this.navController.navigateForward(["/daily-brief", data.sleepTime() / 60]);
       }
       else
       {

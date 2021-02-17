@@ -16,7 +16,7 @@ export class OvernightSleepData extends SleepData {
 	sleepTime():number {
 		var sleepStart_ms = this.sleepStart.getTime();
 		var sleepEnd_ms = this.sleepEnd.getTime();
-		return (sleepEnd_ms - sleepStart_ms) / (1000 * 60);
+		return Math.floor((sleepEnd_ms - sleepStart_ms) / (1000 * 60));
 	}
 
 	summaryString():string {
