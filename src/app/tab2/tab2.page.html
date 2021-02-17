@@ -41,23 +41,6 @@
         </ion-item>
       </ion-card-content>
     </ion-card>
-
-    <ion-card *ngFor = "let alertLevels of alertnessData">
-      <ion-card-header color="primary">
-        <ion-card-title>
-          {{alertLevels.typeString()}}
-          <ion-icon name="trash-outline" style="float: right" (click)="confirmDelete(data.id)"></ion-icon>
-        </ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-item class="ion-no-padding">
-          <ion-text>{{data.dateString()}}</ion-text>
-        </ion-item>
-        <ion-item class="ion-no-padding" lines="none">
-          <ion-text>{{data.summaryString()}}</ion-text>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
   </ion-content>
   
 </div>
