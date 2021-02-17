@@ -33,6 +33,6 @@ export class StanfordSleepinessData extends SleepData {
 	}
 
 	typeString():string {
-		return "Sleepiness Data";
+		return "Alertness Data";
 	}
 }

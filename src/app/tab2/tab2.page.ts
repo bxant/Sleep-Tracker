@@ -37,6 +37,13 @@ export class Tab2Page {
     this.searchDataBackup = this.allData;
   }
 
+  async doRefresh(event) 
+  {
+    this.allData = this.sleepService.getAllValues();
+    setTimeout(() => {
+      event.target.complete();
+    }, 600)
+  }
   
   public filterResults(ev: CustomEvent)
   {

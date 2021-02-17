@@ -21,10 +21,13 @@
   <ion-content>
     <!-- Searchbar with a placeholder -->
     <ion-searchbar (ionChange) = "filterResults($event)"
-    animated color="medium" placeholder="Search Logs"></ion-searchbar>
+      animated color="medium" placeholder="Search Logs"></ion-searchbar>
     <!-- Currently going to be placed as things that are
       related to months. Although not final, should link
       user to specificly filtered months -->
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
     <ion-card *ngFor = "let data of allData">
       <ion-card-header color="primary">
         <ion-card-title>

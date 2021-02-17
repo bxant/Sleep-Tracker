@@ -9,7 +9,12 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'daily-brief/:timeSlept',
+    loadChildren: () => import('./daily-brief/daily-brief.module').then( m => m.DailyBriefPageModule)
   }
+
 ];
 @NgModule({
   imports: [
