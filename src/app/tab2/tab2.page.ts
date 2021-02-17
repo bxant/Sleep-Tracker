@@ -29,12 +29,15 @@ export class Tab2Page {
   
   public searchDataBackup:SleepData[];
 
+  public alertnessData:StanfordSleepinessData[];
+
   
 
   ngOnInit()
   {
     this.allData = this.sleepService.getAllValues();
     this.searchDataBackup = this.allData;
+    this.alertnessData = SleepService.AllSleepinessData;
   }
 
   
