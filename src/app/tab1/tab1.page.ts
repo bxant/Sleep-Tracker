@@ -3,7 +3,7 @@
 import { Component } from '@angular/core';
 
 // Personal imports
-import { ToastController } from '@ionic/angular';
+import { ToastController, NavController } from '@ionic/angular';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { SleepData } from '../data/sleep-data';
 import { SleepService } from '../services/sleep.service';
@@ -12,6 +12,7 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 
 // Ionic Storage
 import { Storage } from '@ionic/storage';
+import { DailyBriefPage } from '../daily-brief/daily-brief.page';
 
 @Component({
   selector: 'app-tab1',
@@ -21,7 +22,7 @@ import { Storage } from '@ionic/storage';
 export class Tab1Page{
   // constructor has toastController to ensure we can
   // notify user when they press buttons/do certain actions.
-  constructor(public toastController: ToastController, 
+  constructor(public toastController: ToastController, public navController: NavController,
     public storage :Storage, private sleepService: SleepService) {
   }
 
@@ -42,30 +43,45 @@ export class Tab1Page{
   {
     // If times are entered, log data and give success notif
     if (this.sleepStart != undefined && this.sleepEnd != undefined){
-      var data = new OvernightSleepData(new Date(this.sleepStart), new Date(this.sleepEnd));
-      this.sleepService.addToStorage(data);
-      const add_toast = await this.toastController.create(
+      if(Date.parse(this.sleepEnd) >= Date.parse(this.sleepStart))
       {
-        message: "Sleep Data Logged",
-        color: "medium",
-        duration: 3000,
-        buttons: [
+        var data = new OvernightSleepData(new Date(this.sleepStart), new Date(this.sleepEnd));
+        this.sleepService.addToStorage(data);
+        // const add_toast = await this.toastController.create(
+        // {
+        //   message: "Sleep Data Logged",
+        //   color: "medium",
+        //   duration: 3000,
+        //   buttons: [
+        //     {
+        //       text: "Undo",
+        //       handler: () => {
+        //         this.sleepService.deleteFromStorage(data.id);
+        //       }
+        //     }
+        //   ]
+        // });
+        // add_toast.present();
+        this.navController.navigateForward("/daily-brief");
+      }
+      else
+      {
+        const add_toast = await this.toastController.create(
           {
-            text: "Undo",
-            handler: () => {
-              this.sleepService.deleteFromStorage(data.id);
-            }
-          }
-        ]
-      });
-      add_toast.present();
+            message: "Invalid Date Range, please try again.",
+            color: "medium",
+            duration: 3000,
+          
+          });
+          add_toast.present();
+      }
     }
 		else{
 			this.toastController.create({
 				message: 'Missing Sleep Information',
         duration: 3000,
         color: "medium",
-        position: "top",	
+        position: "top",
       }).then((toast) => {
 				toast.present();
       });
