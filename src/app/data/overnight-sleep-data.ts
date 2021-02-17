@@ -10,6 +10,7 @@ export class OvernightSleepData extends SleepData {
 		this.sleepStart = sleepStart;
 		this.sleepEnd = sleepEnd;
 		this.id = id;
+		this.type = "Overnight Sleep Data";
 	}
 
 	// Returns time slept in minutes

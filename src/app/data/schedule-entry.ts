@@ -15,6 +15,7 @@ export class ScheduleEntry extends SleepData{
         this.dayStarts = dayStarts;
 		this.dayEnds = dayEnds;
 		this.id = id;
+        this.type = "Schedule Data";
     }
 
     

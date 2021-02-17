@@ -21,6 +21,7 @@ export class StanfordSleepinessData extends SleepData {
 		this.loggedValue = loggedValue;
 		this.loggedAt = loggedAt;
 		this.id = id;
+		this.type = "Alertness Data";
 	}
 
 	summaryString():string {

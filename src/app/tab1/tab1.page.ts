@@ -39,7 +39,7 @@ export class Tab1Page{
   {
     // If times are entered, log data and give success notif
     if (this.sleepStart != undefined && this.sleepEnd != undefined){
-      if(Date.parse(this.sleepEnd) >= Date.parse(this.sleepStart))
+      if(Date.parse(this.sleepEnd) > Date.parse(this.sleepStart))
       {
         var data = new OvernightSleepData(new Date(this.sleepStart), new Date(this.sleepEnd));
         this.sleepService.addToStorage(data);

@@ -4,10 +4,9 @@ import { generate } from 'shortid';
 export class SleepData {
 	id:string;
 	loggedAt:Date;
+	type:string;
 
 	constructor() {
-		//Assign a random (unique) ID. This may be useful for comparison (e.g., are two logged entries the same).
-		// this.id = generate();
 		this.loggedAt = new Date();
 	}
 
@@ -21,5 +20,9 @@ export class SleepData {
 
 	typeString():string {
 		return "Sleep Data";
+	}
+
+	getId():string {
+		return this.id;
 	}
 }

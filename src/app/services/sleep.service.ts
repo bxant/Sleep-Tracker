@@ -9,6 +9,7 @@ import { Storage } from '@ionic/storage';
 import { ScheduleEntry } from '../data/schedule-entry';
 import { MeditationData } from '../data/meditation-data';
 import { NapData } from '../data/nap-data';
+import { ValueAccessor } from '@ionic/angular/directives/control-value-accessors/value-accessor';
 
 @Injectable({
   providedIn: 'root'
@@ -81,11 +82,11 @@ export class SleepService {
     var all_values = [];
 
     this.storage.forEach((value, key, index) => {
-      if (value.loggedValue == undefined)
+      if (value.type == "Overnight Sleep Data")
       {
         all_values.push(new OvernightSleepData(value.sleepStart, value.sleepEnd, value.id));
       }
-      else
+      else if (value.type == "Alertness Data")
       {
         all_values.push(new StanfordSleepinessData(value.loggedValue, value.loggedAt, value.id));
       }
@@ -93,8 +94,23 @@ export class SleepService {
     return all_values;
   }
 
-  public clearStorage() {
-    this.storage.clear();
+  async clearStorage() {    
+    Promise.resolve(this.getAllValues()).then((all_values) => {
+      console.log(all_values);
+      console.log(JSON.stringify(all_values));
+      for (var data of all_values)
+      {
+        this.deleteFromStorage(data.getId());
+      }
+    })
+    
+    // const all_values = this.getAllValues();
+    // console.log(all_values);
+    // for (var data of all_values)
+    // {
+    //   this.deleteFromStorage(data.getId());
+    // }
+    // console.log(all_values);
   }
 
   // ASSUMES 8 HOURS OF SLEEP PER NIGHT
