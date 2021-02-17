@@ -29,12 +29,12 @@ export class Tab1Page{
   private sleepStart:string;
   private sleepEnd:string;
 
-  public sleepScale:String[];
-  private sleepFactor:number;
+  public alertScale:String[];
+  private alertFactor:number;
 
   ngOnInit()
   {
-    this.sleepScale = StanfordSleepinessData.ScaleValues;
+    this.alertScale = StanfordSleepinessData.ScaleValues;
   }
 
   // Store sleep data with SleepService
@@ -66,24 +66,48 @@ export class Tab1Page{
         duration: 3000,
         color: "medium",
         position: "top",	
-				}).then((toast) => {
+      }).then((toast) => {
 				toast.present();
-				});
+      });
 		}
   }
 
   async logAlertness()
   {
-    if (this.sleepFactor  != undefined)
+    if (this.alertFactor  != undefined)
     {
       console.log("Level of alertness printing");
-      console.log(this.sleepFactor);
+      console.log(this.alertFactor);
       console.log("alertness level was printed");
       var dayOfAlertness = new Date();
-      this.sleepService.logSleepinessData(new StanfordSleepinessData(this.sleepFactor, dayOfAlertness));
+      var data = new StanfordSleepinessData(this.alertFactor, dayOfAlertness);
+      this.sleepService.addToStorage(data);
       console.log("alertness was logged");
+      const add_toast = await this.toastController.create(
+      {
+        message: "Alertness Logged",
+        color: "medium",
+        duration: 3000,
+        buttons: [
+          {
+            text: "Undo",
+            handler: () => {
+              this.sleepService.deleteFromStorage(data.id);
+            }
+          }
+        ]
+      });
+      add_toast.present();
     }
-
+		else{
+			this.toastController.create({
+				message: 'Missing Alertness Information',
+        duration: 3000,
+        color: "medium",
+        position: "top",	
+      }).then((toast) => {
+				toast.present();
+      });
+		}
   }
-
 }

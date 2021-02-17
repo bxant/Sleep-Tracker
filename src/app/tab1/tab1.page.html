@@ -41,25 +41,20 @@ based on alertness level -->
 	</ion-card-header>
 
 	<ion-card-content>
-		<ion-item>
-			<ion-label>
-			  How alert are you?
-			</ion-label>
-		  </ion-item>
-		  <ion-item>
+		<ion-item lines="none">
 			<ion-label>Alertness</ion-label>
-			<ion-select scrollable = "true"  [(ngModel)]= "sleepFactor">
-			  <ion-select-option value="1">1: {{sleepScale[1]}}</ion-select-option>
-			  <ion-select-option value="2">2: {{sleepScale[2]}}</ion-select-option>
-			  <ion-select-option value="3">3: {{sleepScale[3]}}</ion-select-option>
-			  <ion-select-option value="4">4: {{sleepScale[4]}}</ion-select-option>
-			  <ion-select-option value="5">5: {{sleepScale[5]}}</ion-select-option>
-			  <ion-select-option value="6">6: {{sleepScale[6]}}</ion-select-option>
-			  <ion-select-option value="7">7: {{sleepScale[7]}}</ion-select-option>
+			<ion-select scrollable = "true"  [(ngModel)]= "alertFactor">
+				<ion-select-option value="1">1: {{alertScale[1]}}</ion-select-option>
+				<ion-select-option value="2">2: {{alertScale[2]}}</ion-select-option>
+				<ion-select-option value="3">3: {{alertScale[3]}}</ion-select-option>
+				<ion-select-option value="4">4: {{alertScale[4]}}</ion-select-option>
+				<ion-select-option value="5">5: {{alertScale[5]}}</ion-select-option>
+				<ion-select-option value="6">6: {{alertScale[6]}}</ion-select-option>
+				<ion-select-option value="7">7: {{alertScale[7]}}</ion-select-option>
 			</ion-select>
 			
-		  </ion-item>
-		  <ion-button (click) = "logAlertness()" expand = "block">Log Alertness</ion-button>
+		    </ion-item>
+		    <ion-button (click) = "logAlertness()" expand = "block">Log Alertness</ion-button>
 		</ion-card-content>
 </ion-card>
 
