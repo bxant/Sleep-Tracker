@@ -6,7 +6,9 @@
 
 <ion-content>
     <h1>You got {{timeSlept}} hours of sleep last night.</h1>
-    <h1>Try to aim for a bedtime of {{recommendBedtime()}} tonight.</h1>
-    <h1>Nap</h1>
+    <h1 *ngIf="hasSleepDebt">You are a little behind on sleep.</h1>
+    <h1 *ngIf="!hasSleepDebt">You are doing well with getting enough sleep.</h1>
+    <h1>Try to aim for a bedtime of {{bedTime}} tonight.</h1>
+    <!-- <h1>Nap</h1> -->
     <ion-button color="primary" (click)="leavePage()">OK</ion-button>
 </ion-content>
