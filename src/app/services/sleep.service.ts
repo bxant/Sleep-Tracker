@@ -99,16 +99,16 @@ export class SleepService {
     // });
     
     
-    // var all_values = this.getAllValues();
+    var all_values = this.getAllValues();
 
-    // var sleepDebt = 0;
-    // var today = new Date();
-    // for (var value of all_values)
-    // {
-    //   // I think that time is two weeks in ms
-    //   if (today.getTime() - value.sleepEnd.getTime() < 1209600000)
-    //     sleepDebt += Math.max(0, 8 - value.sleepTime())
-    // }
-    // return sleepDebt;
+    var sleepDebt = 0;
+    var today = new Date();
+    for (var value of all_values)
+    {
+      // I think that time is two weeks in ms
+      if (today.getTime() - value.sleepEnd.getTime() < 1209600000)
+        sleepDebt += Math.max(0, 8 - value.sleepTime())
+    }
+    return sleepDebt;
   }
 }
