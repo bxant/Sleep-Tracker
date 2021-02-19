@@ -26,27 +26,20 @@ layout as the rest of the pages to ensure consistency. -->
   
 
 <!-- End of page content -->
-
+</ion-content>
+<ion-content>
   <ion-item>
         <ion-title><em>To do: </em></ion-title>
   </ion-item>
-  <ion-item>
-        <!-- <ion-card *ngFor = "let meds of meditationData">
-          <ion-card-header color="primary">
-            <ion-card-title>
-              {{meds.typeString()}}
-              <ion-icon name="trash-outline" style="float: right"></ion-icon>
-            </ion-card-title>
-          </ion-card-header>
+  
+        <ion-card *ngFor = "let meds of meditationData">
+          
           <ion-card-content>
             <ion-item class="ion-no-padding">
-              <ion-text>{{meds.dateString()}}</ion-text>
+              <ion-text>{{meds.meditationString()}}</ion-text>
             </ion-item>
-            <ion-item class="ion-no-padding" lines="none">
-              <ion-text>{{meds.summaryString()}}</ion-text>
-            </ion-item>
+            
           </ion-card-content>
-        </ion-card> -->
-
-  </ion-item>
-</ion-content>
+        </ion-card>
+      </ion-content>
+  

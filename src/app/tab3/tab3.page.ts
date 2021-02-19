@@ -56,12 +56,6 @@ export class Tab3Page {
   }
 
 
-  giveMeditationTimes()
-  {
-    var meditationTimes = {};
-    
-    
-  }
 
   
 

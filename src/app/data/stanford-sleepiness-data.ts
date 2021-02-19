@@ -57,4 +57,9 @@ export class StanfordSleepinessData extends SleepData {
 			this.meditationDuration = 20;
 		}
 	}
+
+	meditationString()
+	{
+		return "Meditation of duration: " + this.meditationDuration	+ " minutes";
+	}
 }
