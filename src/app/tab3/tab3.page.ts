@@ -9,6 +9,7 @@ import { ToastController } from '@ionic/angular';
 
 //Ionic Storage
 import { Storage } from '@ionic/storage';
+import { SleepService } from '../services/sleep.service';
 
 
 @Component({
@@ -18,14 +19,48 @@ import { Storage } from '@ionic/storage';
 })
 export class Tab3Page {
 
-  constructor(storage: Storage, toast:ToastController) 
+  alertInformation = [];
+
+  meditationData = [];
+  constructor(storage: Storage, toast:ToastController, private sleepService:SleepService) 
   {
 
   }
 
   ngOnInit()
   {
+    this.alertInformation = this.sleepService.getAlertData();
+    // console.log("alert info");
+    // console.log(this.alertInformation);
+    // console.log("determining");
+    this.determineIfMeditationNeeded();
+    // console.log("actual meditaiton data");
+    // console.log(this.meditationData);
+    
+  }
 
+  determineIfMeditationNeeded()
+  {
+
+    setTimeout(() => {
+      console.log(JSON.stringify(this.alertInformation));
+      for (var data of this.alertInformation)
+      {
+        if (data.loggedValue >= 3)
+        {
+          this.meditationData.push(data);
+          
+        }
+      }
+    }, 2000);
+  }
+
+
+  giveMeditationTimes()
+  {
+    var meditationTimes = {};
+    
+    
   }
 
   

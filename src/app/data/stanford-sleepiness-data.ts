@@ -15,6 +15,8 @@ export class StanfordSleepinessData extends SleepData {
 	'No longer fighting sleep, sleep onset soon; having dream-like thoughts']; //7
 
 	private loggedValue:number;
+	private meditationDuration:number;
+	
 
 	constructor(loggedValue:number, loggedAt:Date = new Date(), id:string = generate()) {
 		super();
@@ -22,6 +24,9 @@ export class StanfordSleepinessData extends SleepData {
 		this.loggedAt = loggedAt;
 		this.id = id;
 		this.type = "Alertness Data";
+		this.meditationDuration = 0;
+		this.determineMeditationLengths();
+		
 	}
 
 	summaryString():string {
@@ -35,5 +40,21 @@ export class StanfordSleepinessData extends SleepData {
 
 	typeString():string {
 		return "Alertness Data";
+	}
+
+	determineMeditationLengths()
+	{
+		if (this.loggedValue == 3)
+		{
+			this.meditationDuration = 10;
+		}
+		else if (this.loggedValue == 4)
+		{
+			this.meditationDuration = 15;
+		}
+		else if (this.loggedValue == 5)
+		{
+			this.meditationDuration = 20;
+		}
 	}
 }
