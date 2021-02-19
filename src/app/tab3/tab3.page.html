@@ -11,7 +11,7 @@ layout as the rest of the pages to ensure consistency. -->
     <ion-item>
       <p div = "meditationText">
         <em>It is recommended but not enforced you follow this gif to ensure relaxation
-          and minfulness.</em>
+          and mindfulness.</em>
       </p>
     </ion-item>
     <ion-item class = "imageLocation">
@@ -26,15 +26,23 @@ layout as the rest of the pages to ensure consistency. -->
   
 
 <!-- End of page content -->
-</ion-content>
-<ion-content>
+
+<ion-header>
   <ion-item>
         <ion-title><em>To do: </em></ion-title>
   </ion-item>
-  
+</ion-header>
         <ion-card *ngFor = "let meds of meditationData">
-          
+          <ion-card-header color = "primary">
+          <ion-card-title>
+            Meditation
+            <ion-icon name="trash-outline" style="float: right" (click)="removeTask()"></ion-icon>
+          </ion-card-title>
+        </ion-card-header>
           <ion-card-content>
+            <ion-item class="ion-no-padding">
+              <ion-text>{{meds.dateString()}}</ion-text>
+            </ion-item>
             <ion-item class="ion-no-padding">
               <ion-text>{{meds.meditationString()}}</ion-text>
             </ion-item>

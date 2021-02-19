@@ -62,4 +62,9 @@ export class StanfordSleepinessData extends SleepData {
 	{
 		return "Meditation of duration: " + this.meditationDuration	+ " minutes";
 	}
+
+	meditationDate()
+	{
+		
+	}
 }
