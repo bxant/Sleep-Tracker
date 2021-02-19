@@ -25,6 +25,9 @@ export class ProfilePage implements OnInit {
   private firstName:string;
   private lastName:string;
   private userAge:number;
+
+  private preferredSleepStart:Date;
+  private preferredWakeUp:Date;
   
   constructor(public toastController: ToastController, 
               public storage :Storage, public sleepService:SleepService) {
@@ -35,6 +38,9 @@ export class ProfilePage implements OnInit {
     this.storage.get("userFirstName").then((data) => {this.firstName = data});
     this.storage.get("userLastName").then((data) => {this.lastName = data});
     this.storage.get("userAge").then((data) => {this.userAge = data});
+
+    this.storage.get("preferredSleepStart").then((data) => {this.preferredSleepStart = data});
+    this.storage.get("preferredWakeUp").then((data) => {this.preferredWakeUp = data});
   }
 
   async updateUserInfo()
@@ -46,7 +52,7 @@ export class ProfilePage implements OnInit {
       {
         message: "Updated User Info!",
         color: "medium",
-        duration: 3000,
+        duration: 2000,
         buttons: [
           {
             text: "Undo",
@@ -58,9 +64,28 @@ export class ProfilePage implements OnInit {
           }
         ]
       });
-      add_toast.present();
-
+    add_toast.present();
   }
 
-
+  async updateGoals() 
+  {
+    this.storage.set("preferredSleepStart", this.preferredSleepStart);
+    this.storage.set("preferredWakeUp", this.preferredWakeUp);
+    const add_toast = await this.toastController.create(
+      {
+        message: "Updated Goals!",
+        color: "medium",
+        duration: 2000,
+        buttons: [
+          {
+            text: "Undo",
+            handler: () => {
+              this.storage.remove("preferredSleepStart");
+              this.storage.remove("preferredGoals");
+            }
+          }
+        ]
+      });
+    add_toast.present();
+  }
 }
