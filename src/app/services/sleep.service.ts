@@ -95,22 +95,14 @@ export class SleepService {
   }
 
   async clearStorage() {    
-    Promise.resolve(this.getAllValues()).then((all_values) => {
-      console.log(all_values);
+    const all_values = this.getAllValues();
+    setTimeout(() => {
       console.log(JSON.stringify(all_values));
       for (var data of all_values)
       {
-        this.deleteFromStorage(data.getId());
+        this.deleteFromStorage(data.id);
       }
-    })
-    
-    // const all_values = this.getAllValues();
-    // console.log(all_values);
-    // for (var data of all_values)
-    // {
-    //   this.deleteFromStorage(data.getId());
-    // }
-    // console.log(all_values);
+    }, 2000);
   }
 
   // ASSUMES 8 HOURS OF SLEEP PER NIGHT
