@@ -26,49 +26,8 @@ export class SleepService {
   public static AllNapData:NapData[] = [];
 
   constructor(private storage: Storage) {
-  	// if(SleepService.LoadDefaultData) {
-    //   this.addDefaultData();
-  	// 	SleepService.LoadDefaultData = false;
-  	// }
+
   }
-
-  // private addDefaultData() {
-  //   this.logOvernightData(new OvernightSleepData(new Date('November 17, 2019 01:03:00'), new Date('November 17, 2019 09:25:00')));
-  //   this.logSleepinessData(new StanfordSleepinessData(4, new Date('November 17, 2019 14:38:00')));
-  //   this.logOvernightData(new OvernightSleepData(new Date('November 18, 2019 23:11:00'), new Date('November 19, 2019 08:03:00')));
-  // }
-
-  // public logOvernightData(sleepData:OvernightSleepData) {
-  //   SleepService.AllSleepData.push(sleepData);
-  //   SleepService.AllOvernightData.push(sleepData);
-  // }
-
-  // public logSleepinessData(sleepData:StanfordSleepinessData) {
-  // 	SleepService.AllSleepData.push(sleepData);
-  // 	SleepService.AllSleepinessData.push(sleepData);
-  // }
-
-  // public logScheduleData(sleepData:ScheduleEntry)
-  // {
-  //   SleepService.AllSleepData.push(sleepData);
-  //   SleepService.AllScheduleData.push(sleepData);
-
-  // }
-
-  // public logMeditationData(sleepData:MeditationData)
-  // {
-  //   SleepService.AllSleepData.push(sleepData);
-
-  //   // this is subject to change since this is not necessarily sleep
-  //   // data but we'll see
-  //   SleepService.AllMeditationData.push(sleepData);
-  // }
-
-  // public logNapData(sleepData:NapData)
-  // {
-  //   SleepService.AllSleepData.push(sleepData);
-  //   SleepService.AllNapData.push(sleepData);
-  // }
 
   public addToStorage(sleepData:SleepData) {
     this.storage.set(sleepData.id, sleepData);
@@ -120,6 +79,26 @@ export class SleepService {
   // ASSUMES 8 HOURS OF SLEEP PER NIGHT
   // CHNAGE WHEN PERSONALIZATION IS IMPLEMENTED
   public getSleepDebt() {
+    // const promise = new Promise((resolve, reject) =>
+    // {
+    //   resolve(this.getAllValues());
+    // });
+
+    // promise.then((data) =>
+    // {
+    //   var all_values = data;
+    //   var sleepDebt = 0;
+    //   var today = new Date();
+    //   for (var value of all_values)
+    //   {
+    //     // I think that time is two weeks in ms
+    //     if (today.getTime() - value.sleepEnd.getTime() < 1209600000)
+    //       sleepDebt += Math.max(0, 8 - value.sleepTime())
+    //   }
+    //   return sleepDebt;
+    // });
+    
+    
     var all_values = this.getAllValues();
 
     var sleepDebt = 0;
