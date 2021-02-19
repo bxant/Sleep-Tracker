@@ -9,17 +9,17 @@
     <!-- Input with placeholder -->
     <br>
 <ion-item>About Me
-<ion-label position = "floating">First Name</ion-label>
-<ion-input (ionChange) = "firstNameChanged()" [(ngModel)] = "firstName" 
-  class = "userFirst" animated></ion-input>
+  <ion-label position = "floating">First Name</ion-label>
+  <ion-input [(ngModel)] = "firstName" 
+    class = "userFirst" animated></ion-input>
 
   <ion-label position = "floating">Last Name</ion-label>
-<ion-input (ionChange) = "lastNameChanged()" [(ngModel)]  = "lastName" 
-  class = "userLast" animated></ion-input>
+  <ion-input [(ngModel)]  = "lastName" 
+    class = "userLast" animated></ion-input>
 
   <ion-label position = "floating">Age</ion-label>
-  <ion-input (ionChange) = "updateAge()" [(ngModel)] = "userAge" 
-  type="number" value="18" default = "18" animated></ion-input>
+  <ion-input [(ngModel)] = "userAge" 
+    type="number" value="18" default = "18" animated></ion-input>
 
 
   <ion-button color = "tertiary" (click) = "updateUserInfo()">Update Info</ion-button>
