@@ -81,13 +81,15 @@ export class Tab2Page {
   
   clearStorage() {
     this.sleepService.clearStorage();
-    this.allData = this.sleepService.getAllValues();
-    this.toastController.create(
-			{
+    setTimeout(() => {
+      this.allData = this.sleepService.getAllValues();
+      this.toastController.create(
+      {
         message: "All Entries Deleted",
         color: "medium",
-				duration: 2000
-			}).then((toast)=>{toast.present()});
+        duration: 2000
+      }).then((toast)=>{toast.present()});
+    });
   }
 
   async confirmDelete(id:string) {
