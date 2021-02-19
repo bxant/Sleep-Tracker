@@ -30,8 +30,33 @@
 
 <br>
 
+<ion-item>My Sleep Goals</ion-item>
+<ion-card>
+	<ion-card-header color="primary">
+		<ion-card-title text-wrap>
+			Sleep Goals
+		</ion-card-title>
+	</ion-card-header>
+  <ion-card-content>
+    <ion-item class="ion-no-padding">
+    <ion-label >Sleep at</ion-label>	
+    <ion-datetime text-wrap [(ngModel)]="preferredSleepStart" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+  </ion-item>
+  
+  <ion-item class="ion-no-padding" lines="none">
+    <ion-label >Wake up</ion-label>
+    <ion-datetime text-wrap [(ngModel)]="preferredWakeUp" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+  </ion-item>
+  <ion-button color="primary" (click)="updateGoals()" expand="block">Update Goals</ion-button>
+  </ion-card-content>
+</ion-card>
+
+
+<br>
 <ion-item>My Schedule
 </ion-item>
+
+
 
 
 
