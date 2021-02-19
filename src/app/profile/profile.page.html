@@ -7,8 +7,10 @@
 <ion-content>
 <ion-content>
     <!-- Input with placeholder -->
-    <br>
-<ion-item>About Me
+
+<br>
+<ion-item>
+  <strong>About Me</strong>
   <ion-label position = "floating">First Name</ion-label>
   <ion-input [(ngModel)] = "firstName" 
     class = "userFirst" animated></ion-input>
@@ -25,7 +27,9 @@
   <ion-button color = "tertiary" (click) = "updateUserInfo()">Update Info</ion-button>
 
 </ion-item>
+
 <br>
+
 <ion-item>My Schedule
 </ion-item>
 
