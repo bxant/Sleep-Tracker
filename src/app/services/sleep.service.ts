@@ -79,16 +79,36 @@ export class SleepService {
   // ASSUMES 8 HOURS OF SLEEP PER NIGHT
   // CHNAGE WHEN PERSONALIZATION IS IMPLEMENTED
   public getSleepDebt() {
-    var all_values = this.getAllValues();
+    // const promise = new Promise((resolve, reject) =>
+    // {
+    //   resolve(this.getAllValues());
+    // });
 
-    var sleepDebt = 0;
-    var today = new Date();
-    for (var value of all_values)
-    {
-      // I think that time is two weeks in ms
-      if (today.getTime() - value.sleepEnd.getTime() < 1209600000)
-        sleepDebt += Math.max(0, 8 - value.sleepTime())
-    }
-    return sleepDebt;
+    // promise.then((data) =>
+    // {
+    //   var all_values = data;
+    //   var sleepDebt = 0;
+    //   var today = new Date();
+    //   for (var value of all_values)
+    //   {
+    //     // I think that time is two weeks in ms
+    //     if (today.getTime() - value.sleepEnd.getTime() < 1209600000)
+    //       sleepDebt += Math.max(0, 8 - value.sleepTime())
+    //   }
+    //   return sleepDebt;
+    // });
+    
+    
+    // var all_values = this.getAllValues();
+
+    // var sleepDebt = 0;
+    // var today = new Date();
+    // for (var value of all_values)
+    // {
+    //   // I think that time is two weeks in ms
+    //   if (today.getTime() - value.sleepEnd.getTime() < 1209600000)
+    //     sleepDebt += Math.max(0, 8 - value.sleepTime())
+    // }
+    // return sleepDebt;
   }
 }
