@@ -94,6 +94,18 @@ export class SleepService {
     return all_values;
   }
 
+  public getAlertData()
+  {
+    var alertStorage = [];
+    this.storage.forEach((value, key, index) => {
+      if (value.type == "Alertness Data")
+      {
+        alertStorage.push(new StanfordSleepinessData(value.loggedValue, value.loggedAt, value.id));
+      }
+    });
+    return alertStorage;
+  }
+
   async clearStorage() {    
     const all_values = this.getAllValues();
     setTimeout(() => {
