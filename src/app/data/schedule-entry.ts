@@ -6,18 +6,23 @@ import { SleepData } from './sleep-data';
 
 export class ScheduleEntry extends SleepData{
 
-    private dayStarts:Date;
-    private dayEnds:Date;
+    private scheduleStart:Date;
+	private scheduleEnd:Date;
+    private scheduleDay:string;
     
-    constructor(dayStarts:Date, dayEnds:Date, id:string = generate())
+    constructor(scheduleDay:string, scheduleStart:Date, scheduleEnd:Date, id:string = generate())
     {
         super();
-        this.dayStarts = dayStarts;
-		this.dayEnds = dayEnds;
+        this.scheduleDay = scheduleDay;
+		this.scheduleStart = scheduleStart;
+		this.scheduleEnd = scheduleEnd;
 		this.id = id;
         this.type = "Schedule Data";
     }
 
+    typeString():string {
+		return "Schedule Entry";
+	}
     
 
 }

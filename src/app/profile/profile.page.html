@@ -52,13 +52,139 @@
 </ion-card>
 
 
-<br>
-<ion-item>My Schedule
-</ion-item>
+<ion-item>My Schedule</ion-item>
+<ion-card>
+	<ion-card-header color="primary">
+		<ion-card-title text-wrap>
+			Sunday
+		</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item class="ion-no-padding">
+    <ion-label >Start Time</ion-label>	
+    <ion-datetime text-wrap [(ngModel)]="scheduleStartSunday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+  </ion-item>
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-label >End Time</ion-label>
+      <ion-datetime [(ngModel)]="scheduleEndSunday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+    </ion-item>
+    <ion-button color="primary" (click)="logScheduleSunday()" expand="block">Log Schedule</ion-button>
+  </ion-card-content>
+</ion-card>
 
+<ion-card>
+	<ion-card-header color="primary">
+		<ion-card-title text-wrap>
+			Monday
+		</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item class="ion-no-padding">
+    <ion-label >Start Time</ion-label>	
+    <ion-datetime text-wrap [(ngModel)]="scheduleStartMonday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+  </ion-item>
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-label >End Time</ion-label>
+      <ion-datetime [(ngModel)]="scheduleEndMonday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+    </ion-item>
+    <ion-button color="primary" (click)="logScheduleMonday()" expand="block">Log Schedule</ion-button>
+  </ion-card-content>
+</ion-card>
 
+<ion-card>
+	<ion-card-header color="primary">
+		<ion-card-title text-wrap>
+			Tuesday
+		</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item class="ion-no-padding">
+    <ion-label >Start Time</ion-label>	
+    <ion-datetime text-wrap [(ngModel)]="scheduleStartTuesday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+  </ion-item>
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-label >End Time</ion-label>
+      <ion-datetime [(ngModel)]="scheduleEndTuesday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+    </ion-item>
+    <ion-button color="primary" (click)="logScheduleTuesday()" expand="block">Log Schedule</ion-button>
+  </ion-card-content>
+</ion-card>
 
+<ion-card>
+	<ion-card-header color="primary">
+		<ion-card-title text-wrap>
+			Wednesday
+		</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item class="ion-no-padding">
+    <ion-label >Start Time</ion-label>	
+    <ion-datetime text-wrap [(ngModel)]="scheduleStartWednesday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+  </ion-item>
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-label >End Time</ion-label>
+      <ion-datetime [(ngModel)]="scheduleEndWednesday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+    </ion-item>
+    <ion-button color="primary" (click)="logScheduleWednesday()" expand="block">Log Schedule</ion-button>
+  </ion-card-content>
+</ion-card>
 
+<ion-card>
+	<ion-card-header color="primary">
+		<ion-card-title text-wrap>
+			Thursday
+		</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item class="ion-no-padding">
+    <ion-label >Start Time</ion-label>	
+    <ion-datetime text-wrap [(ngModel)]="scheduleStartThursday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+  </ion-item>
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-label >End Time</ion-label>
+      <ion-datetime [(ngModel)]="scheduleEndThursday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+    </ion-item>
+    <ion-button color="primary" (click)="logScheduleThursday()" expand="block">Log Schedule</ion-button>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+	<ion-card-header color="primary">
+		<ion-card-title text-wrap>
+			Friday
+		</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item class="ion-no-padding">
+    <ion-label >Start Time</ion-label>	
+    <ion-datetime text-wrap [(ngModel)]="scheduleStartFriday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+  </ion-item>
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-label >End Time</ion-label>
+      <ion-datetime [(ngModel)]="scheduleEndFriday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+    </ion-item>
+    <ion-button color="primary" (click)="logScheduleFriday()" expand="block">Log Schedule</ion-button>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+	<ion-card-header color="primary">
+		<ion-card-title text-wrap>
+			Saturday
+		</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item class="ion-no-padding">
+    <ion-label >Start Time</ion-label>	
+    <ion-datetime text-wrap [(ngModel)]="scheduleStartSaturday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+  </ion-item>
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-label >End Time</ion-label>
+      <ion-datetime [(ngModel)]="scheduleEndSaturday" displayFormat="hh:mma" placeholder="Select Time"></ion-datetime>
+    </ion-item>
+    <ion-button color="primary" (click)="logScheduleSaturday()" expand="block">Log Schedule</ion-button>
+  </ion-card-content>
+</ion-card>
 
 </ion-content>
 
