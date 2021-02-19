@@ -3,7 +3,7 @@
 import { Component } from '@angular/core';
 
 // Personal imports
-import { ToastController, NavController } from '@ionic/angular';
+import { ToastController, NavController, AlertController } from '@ionic/angular';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { SleepData } from '../data/sleep-data';
 import { SleepService } from '../services/sleep.service';
@@ -19,7 +19,7 @@ export class Tab1Page{
   // constructor has toastController to ensure we can
   // notify user when they press buttons/do certain actions.
   constructor(public toastController: ToastController, public navController: NavController,
- private sleepService: SleepService) {
+ private sleepService: SleepService, public alertController:AlertController) {
   }
 
   // Time/Date of when the user started and ended their sleep
@@ -88,13 +88,26 @@ export class Tab1Page{
   {
     if (this.alertFactor  != undefined)
     {
-      console.log("Level of alertness printing");
-      console.log(this.alertFactor);
-      console.log("alertness level was printed");
+      // console.log("Level of alertness printing");
+      // console.log(this.alertFactor);
+      // console.log("alertness level was printed");
       var dayOfAlertness = new Date();
       var data = new StanfordSleepinessData(this.alertFactor, dayOfAlertness);
       this.sleepService.addToStorage(data);
       console.log("alertness was logged");
+      if (this.alertFactor >= 3 && this.alertFactor < 6)
+      {
+        const alert = await this.alertController.create({
+          header: "Recommendation",
+          message: "Based on your alertness level, we recommended a meditation. You can view this task in the meditation page",
+          buttons: [
+            {
+              text: 'Okay'
+            },
+          ]
+        });
+        await alert.present();
+      }
       const add_toast = await this.toastController.create(
       {
         message: "Alertness Logged",

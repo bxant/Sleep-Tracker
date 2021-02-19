@@ -26,17 +26,18 @@ layout as the rest of the pages to ensure consistency. -->
   
 
 <!-- End of page content -->
-
+<ion-item>
 <ion-header>
   <ion-item>
         <ion-title><em>To do: </em></ion-title>
   </ion-item>
 </ion-header>
-        <ion-card *ngFor = "let meds of meditationData">
+</ion-item>
+        <ion-card *ngFor = "let meds of meditationData; let i = index">
           <ion-card-header color = "primary">
           <ion-card-title>
             Meditation
-            <ion-icon name="trash-outline" style="float: right" (click)="removeTask()"></ion-icon>
+            <ion-icon name="checkmark" style="float: right" (click)="deleteMeditation(meds.id)"></ion-icon>
           </ion-card-title>
         </ion-card-header>
           <ion-card-content>
