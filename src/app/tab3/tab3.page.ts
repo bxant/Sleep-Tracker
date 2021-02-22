@@ -29,6 +29,7 @@ export class Tab3Page {
   alertInformation = [];
 
   meditationorNapData = [];
+  private typeData:string;
   constructor(storage: Storage, toast:ToastController, private sleepService:SleepService,
     public alertController:AlertController) 
   {
@@ -57,10 +58,12 @@ export class Tab3Page {
         if (data.loggedValue >= 3 && data.loggedValue < 6)
         {
           this.meditationorNapData.push(new MeditationData(data.loggedValue, data.loggedAt));
+          this.typeData = "Meditation";
         }
         else
         {
           this.meditationorNapData.push(new NapData(data.loggedValue, data.loggedAt));
+          this.typeData = "Nap";
         }
       }
     }, 2000);
@@ -79,7 +82,7 @@ export class Tab3Page {
   async deleteMeditation(id:string) {
     const alert = await this.alertController.create({
       header: "Meditation",
-      message: "Did you complete this meditation?",
+      message: "Did you complete this"+ this.typeData +"?",
       buttons: [
         {
           text: 'Cancel',
