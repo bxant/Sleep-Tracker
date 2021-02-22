@@ -88,9 +88,6 @@ export class Tab1Page{
   {
     if (this.alertFactor  != undefined)
     {
-      // console.log("Level of alertness printing");
-      // console.log(this.alertFactor);
-      // console.log("alertness level was printed");
       var dayOfAlertness = new Date();
       var data = new StanfordSleepinessData(this.alertFactor, dayOfAlertness);
       this.sleepService.addToStorage(data);

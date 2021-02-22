@@ -37,7 +37,7 @@ export class StanfordSleepinessData extends SleepData {
 	}
 
 	dateString():string {
-		return this.loggedAt.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+		return "Night of " + this.loggedAt.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
 	}
 
 	typeString():string {

@@ -46,4 +46,8 @@ export class MeditationData{
 	typeString():string{
 		return "Meditation Data";
 	}
+
+	cardString():string{
+		return "Meditation";
+	}
 }

@@ -34,12 +34,14 @@ export class Tab2Page {
   ngOnInit()
   {
     this.allData = this.sleepService.getAllValues();
+    this.allData = this.allData.sort((a, b) => a > b ? -1: 1);
     this.searchDataBackup = this.allData;
   }
 
   async doRefresh(event) 
   {
     this.allData = this.sleepService.getAllValues();
+    this.allData = this.allData.sort((a, b) => a > b ? -1: 1);
     setTimeout(() => {
       event.target.complete();
     }, 600)
@@ -48,6 +50,7 @@ export class Tab2Page {
   public filterResults(ev: CustomEvent)
   {
     this.allData = this.searchDataBackup;
+    this.allData = this.allData.sort((a, b) => a > b ? -1: 1);
     const val = ev.detail.value;
     
     if (val && val.trim() !== '')
@@ -62,34 +65,21 @@ export class Tab2Page {
 
   public filteredMonths()
   {
-    console.log("month filter");
+    // console.log("month filter");
     console.log(this.selectedMonths); 
   }
 
   public filteredDays()
   {
-    console.log("day filter");
+    // console.log("day filter");
     console.log(this.selectedDays);
   }
 
-  // tagsSelected = []
-  // for (var i = 0; i < tagsSelected.length; i++)
-  // {
-  //   tagsSelected.push(tagsSe)
-  // }
-
-  // TODO: Need to bind the months to array that can be used
-  // to filter through our sleep data.
-  // Need to also bind days to array to use for filtering of data.
-
-  //TODO: need to be able to also bind both days and months to our information.
-  // probably use a boolean value to ensure that our days are
-  // actually "filterable" <-- not sure if that's a word
-  // but I hope you get the idea.
 
   deleteData(id:string) {
     this.sleepService.deleteFromStorage(id);
     this.allData = this.sleepService.getAllValues();
+    this.allData = this.allData.sort((a, b) => a > b ? -1: 1);
     this.toastController.create(
 			{
 				message: "Deleted Entry",
@@ -101,6 +91,7 @@ export class Tab2Page {
     this.sleepService.clearStorage();
     setTimeout(() => {
       this.allData = this.sleepService.getAllValues();
+      this.allData = this.allData.sort((a, b) => a > b ? -1: 1);
       this.toastController.create(
       {
         message: "All Entries Deleted",

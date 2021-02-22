@@ -54,4 +54,8 @@ export class NapData{
 	typeString():string{
 		return "Nap Data";
 	}
+
+    cardString():string{
+        return "Nap";
+    }
 }

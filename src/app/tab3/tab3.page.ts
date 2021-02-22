@@ -39,12 +39,7 @@ export class Tab3Page {
   ngOnInit()
   {
     this.alertInformation = this.sleepService.getAlertData();
-    // console.log("alert info");
-    // console.log(this.alertInformation);
-    // console.log("determining");
     this.determineIfMeditationNeeded();
-    // console.log("actual meditaiton data");
-    // console.log(this.meditationData);
     
   }
 
@@ -73,16 +68,13 @@ export class Tab3Page {
 
   removeTask(id)
   {
-    // console.log("removing task");
-    // this.meditationData.splice(index, 1);
     this.meditationorNapData.splice(id,1);
-
   }
 
-  async deleteMeditation(id:string) {
+  async deleteMeditation(id:string, type:string) {
     const alert = await this.alertController.create({
-      header: "Meditation",
-      message: "Did you complete this"+ this.typeData +"?",
+      header: type,
+      message: "Did you complete this "+ type +"?",
       buttons: [
         {
           text: 'Cancel',

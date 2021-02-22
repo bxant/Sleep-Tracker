@@ -37,7 +37,7 @@ layout as the rest of the pages to ensure consistency. -->
           <ion-card-header color = "primary">
           <ion-card-title>
             {{meds.typeString()}}
-            <ion-icon name="checkmark" style="float: right" (click)="deleteMeditation(meds.id)"></ion-icon>
+            <ion-icon name="checkmark" style="float: right" (click)="deleteMeditation(meds.id, meds.cardString())"></ion-icon>
           </ion-card-title>
         </ion-card-header>
           <ion-card-content>
