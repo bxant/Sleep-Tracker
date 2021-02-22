@@ -14,6 +14,8 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 import { SleepService } from '../services/sleep.service';
 
 
+import { MeditationData } from '../data/meditation-data';
+import { NapData } from '../data/nap-data';
 import { generate } from 'shortid';
 
 
@@ -26,7 +28,7 @@ export class Tab3Page {
 
   alertInformation = [];
 
-  meditationData = [];
+  meditationorNapData = [];
   constructor(storage: Storage, toast:ToastController, private sleepService:SleepService,
     public alertController:AlertController) 
   {
@@ -52,20 +54,25 @@ export class Tab3Page {
       console.log(JSON.stringify(this.alertInformation));
       for (var data of this.alertInformation)
       {
-        if (data.loggedValue >= 3)
+        if (data.loggedValue >= 3 && data.loggedValue < 6)
         {
-          this.meditationData.push(new StanfordSleepinessData(data.loggedValue, data.loggedAt, generate()));
-          
+          this.meditationorNapData.push(new MeditationData(data.loggedValue, data.loggedAt));
+        }
+        else
+        {
+          this.meditationorNapData.push(new NapData(data.loggedValue, data.loggedAt));
         }
       }
     }, 2000);
+    console.log("this stuff");
+    console.log(this.meditationorNapData);
   }
 
   removeTask(id)
   {
     // console.log("removing task");
     // this.meditationData.splice(index, 1);
-    this.meditationData.splice(id,1);
+    this.meditationorNapData.splice(id,1);
 
   }
 
@@ -79,8 +86,8 @@ export class Tab3Page {
           role: 'cancel'
         }, 
         {
-          text: 'Delete',
-          cssClass: "danger",
+          text: 'Complete',
+          cssClass: "cool",
           handler: () => {
             this.removeTask(id);
           }

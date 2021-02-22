@@ -108,6 +108,19 @@ export class Tab1Page{
         });
         await alert.present();
       }
+      else if (this.alertFactor >= 6)
+      {
+        const alert = await this.alertController.create({
+          header: "Recommendation",
+          message: "Based on your alertness level, we recommended a nap. You can view this task in the meditation page",
+          buttons: [
+            {
+              text: 'Okay'
+            },
+          ]
+        });
+        await alert.present(); 
+      }
       const add_toast = await this.toastController.create(
       {
         message: "Alertness Logged",

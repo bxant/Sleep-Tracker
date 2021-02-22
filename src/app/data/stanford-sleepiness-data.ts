@@ -16,6 +16,7 @@ export class StanfordSleepinessData extends SleepData {
 
 	private loggedValue:number;
 	private meditationDuration:number;
+	private napDuration:number;
 	
 
 	constructor(loggedValue:number, loggedAt:Date = new Date(), id:string = generate()) {
@@ -25,7 +26,8 @@ export class StanfordSleepinessData extends SleepData {
 		this.id = id;
 		this.type = "Alertness Data";
 		this.meditationDuration = 0;
-		this.determineMeditationLengths();
+		this.napDuration = 0;
+		this.determineMeditationorNapLengths();
 		
 	}
 
@@ -42,7 +44,7 @@ export class StanfordSleepinessData extends SleepData {
 		return "Alertness Data";
 	}
 
-	determineMeditationLengths()
+	determineMeditationorNapLengths()
 	{
 		if (this.loggedValue == 3)
 		{
@@ -56,15 +58,14 @@ export class StanfordSleepinessData extends SleepData {
 		{
 			this.meditationDuration = 20;
 		}
+		else if (this.loggedValue == 6)
+		{
+			this.napDuration = 30;
+		}
+		else if (this.loggedValue == 7)
+		{
+			this.napDuration = 60;
+		}
 	}
 
-	meditationString()
-	{
-		return "Meditation of duration: " + this.meditationDuration	+ " minutes";
-	}
-
-	meditationDate()
-	{
-		
-	}
 }

@@ -33,10 +33,10 @@ layout as the rest of the pages to ensure consistency. -->
   </ion-item>
 </ion-header>
 </ion-item>
-        <ion-card *ngFor = "let meds of meditationData; let i = index">
+        <ion-card *ngFor = "let meds of meditationorNapData; let i = index">
           <ion-card-header color = "primary">
           <ion-card-title>
-            Meditation
+            {{meds.typeString()}}
             <ion-icon name="checkmark" style="float: right" (click)="deleteMeditation(meds.id)"></ion-icon>
           </ion-card-title>
         </ion-card-header>
