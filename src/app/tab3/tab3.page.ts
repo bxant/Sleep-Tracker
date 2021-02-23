@@ -55,7 +55,7 @@ export class Tab3Page {
           this.meditationorNapData.push(new MeditationData(data.loggedValue, data.loggedAt));
           this.typeData = "Meditation";
         }
-        else
+        else if (data.loggedValue >= 6)
         {
           this.meditationorNapData.push(new NapData(data.loggedValue, data.loggedAt));
           this.typeData = "Nap";
