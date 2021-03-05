@@ -43,6 +43,15 @@ export class Tab3Page {
     
   }
 
+  async doRefresh(event) 
+  {
+    
+    this.meditationorNapData = this.meditationorNapData.sort((a, b) => a > b ? -1: 1);
+    setTimeout(() => {
+      event.target.complete();
+    }, 600)
+  }
+
   determineIfMeditationNeeded()
   {
 
@@ -68,6 +77,7 @@ export class Tab3Page {
 
   removeTask(id)
   {
+    // this only removes it from 
     this.meditationorNapData.splice(id,1);
   }
 
