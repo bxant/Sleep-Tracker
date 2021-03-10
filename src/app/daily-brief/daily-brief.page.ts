@@ -34,7 +34,7 @@ export class DailyBriefPage implements OnInit {
 
       var bedtimeHour = (wakeGoal.getHours() - neededSleep);
       if (bedtimeHour < 0)
-        bedtimeHour = 24 + bedtimeHour;
+        bedtimeHour = 12 + bedtimeHour;
       this.bedTime = bedtimeHour + ":" + wakeGoal.getMinutes();
       console.log(this.bedTime);
     });
