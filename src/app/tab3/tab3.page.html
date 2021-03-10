@@ -29,13 +29,10 @@ layout as the rest of the pages to ensure consistency. -->
 <ion-item>
 <ion-header>
   <ion-item>
-        <ion-title><em>To do: {{meditationorNapData.length}}</em></ion-title>
+        <ion-title><em>To do: </em></ion-title>
   </ion-item>
 </ion-header>
 </ion-item>
-<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-  <ion-refresher-content></ion-refresher-content>
-</ion-refresher>
         <ion-card *ngFor = "let meds of meditationorNapData; let i = index">
           <ion-card-header color = "primary">
           <ion-card-title>
