@@ -25,7 +25,8 @@ layout as the rest of the pages to ensure consistency. -->
 				<ion-label >Wake Time</ion-label>
 				<ion-datetime [(ngModel)]="sleepEnd" displayFormat="MM/DD/YY - hh:mma" placeholder="Select Date"></ion-datetime>
 			</ion-item>
-			<ion-button color="primary" (click)="logSleep()" expand="block">Log Sleep</ion-button>
+			<ion-button color="primary" (click)="logSleep()" expand="block">Log New Sleep</ion-button>
+			<ion-button color="primary" (click)="logSleepGoals()" expand="block">Log Usual Sleep</ion-button>
 		</ion-card-content>
 	</ion-card>
 

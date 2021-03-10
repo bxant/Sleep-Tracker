@@ -9,6 +9,7 @@ import { SleepData } from '../data/sleep-data';
 import { SleepService } from '../services/sleep.service';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 import { NavigationExtras } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-tab1',
@@ -19,10 +20,14 @@ export class Tab1Page{
   // constructor has toastController to ensure we can
   // notify user when they press buttons/do certain actions.
   constructor(public toastController: ToastController, public navController: NavController,
- private sleepService: SleepService, public alertController:AlertController) {
+ private sleepService: SleepService, public alertController:AlertController,
+ private storage:Storage) {
   }
 
   // Time/Date of when the user started and ended their sleep
+  private usualSleepStart:Date;
+  private usualWakeUp;
+
   private sleepStart:string;
   private sleepEnd:string;
 
@@ -32,8 +37,45 @@ export class Tab1Page{
   ngOnInit()
   {
     this.alertScale = StanfordSleepinessData.ScaleValues;
+    this.storage.get("preferredSleepStart").then((data) => {this.usualSleepStart = data});
+    this.storage.get("preferredWakeUp").then((data) => {this.usualWakeUp = data});
   }
 
+  async logSleepGoals()
+  {
+    if (this.usualSleepStart != undefined && this.usualWakeUp != undefined){
+      if(this.usualSleepStart > this.usualWakeUp)
+      {
+        var data = new OvernightSleepData(this.usualSleepStart, this.usualWakeUp);
+        this.sleepService.addToStorage(data);
+        
+        this.navController.navigateForward(["/daily-brief", data.sleepTime() / 60]);
+      }
+      else
+      {
+        const add_toast = await this.toastController.create(
+          {
+            message: "Invalid Date Range, please try again.",
+            color: "medium",
+            duration: 3000,
+          
+          });
+          add_toast.present();
+      }
+    }
+		else{
+			this.toastController.create({
+				message: 'Missing Sleep Information',
+        duration: 3000,
+        color: "medium",
+        position: "top",
+      }).then((toast) => {
+				toast.present();
+      });
+		}
+    
+  }
+  
   // Store sleep data with SleepService
   async logSleep()
   {

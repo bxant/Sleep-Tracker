@@ -39,6 +39,12 @@ export class MeditationData{
 		}
 	}
 
+
+	timeRecommended()
+	{
+		
+	}
+
     dateString():string {
 		return this.loggedAt.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
 	}
