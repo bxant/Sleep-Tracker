@@ -44,6 +44,17 @@ export class DailyBriefPage implements OnInit {
     return this.storage.get("preferredWakeUp");
   }
 
+  sleepString()
+  {
+    if (this.timeSlept < 8)
+    {
+      return "You are a little behind on sleep.";
+    }
+    else{
+      return "You are doing well with getting enough sleep.";
+    }
+  }
+
   leavePage()
   {
     this.navController.back();

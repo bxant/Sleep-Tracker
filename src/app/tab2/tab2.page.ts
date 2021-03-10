@@ -50,7 +50,6 @@ export class Tab2Page {
   public filterResults(ev: CustomEvent)
   {
     this.allData = this.searchDataBackup;
-    this.allData = this.allData.sort((a, b) => a > b ? -1: 1);
     const val = ev.detail.value;
     
     if (val && val.trim() !== '')
